@@ -1,10 +1,14 @@
 Group 1 Project: Xây dựng ứng dụng quản lý thư viện
+
 Member
+
 Introduction
+
 Xây dựng ứng dụng quản lý thư viện với các chức năng cơ bản: quản lý người dùng (độc giả), sách, và hoạt động mượn-trả sách.
 Technolog Object-Oriented Programming (OOP)
 
 Structural Diagram (Sơ đồ cấu trúc)
+
 User (Độc giả thư viện)
 
 Book (Sách)

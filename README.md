@@ -1,14 +1,8 @@
 Group 1 Project: Xây dựng ứng dụng quản lý thư viện
 Member
-(Điền tên thành viên nhóm)
-
 Introduction
 Xây dựng ứng dụng quản lý thư viện với các chức năng cơ bản: quản lý người dùng (độc giả), sách, và hoạt động mượn-trả sách.
-
-Technology
-Ngôn ngữ lập trình: Java / Python / C++ (chọn 1)
-
-Paradigm: Object-Oriented Programming (OOP)
+Technolog Object-Oriented Programming (OOP)
 
 Structural Diagram (Sơ đồ cấu trúc)
 User (Độc giả thư viện)
@@ -34,24 +28,9 @@ Book (Thông tin sách)
 UserBook (Thông tin mượn sách)
 Stage 2
 Bổ sung các hành vi (method) cơ bản cho các class:
-
 User
-registerUser()
-
-viewBorrowedBooks()
-
 Book
-checkAvailability()
-
-updateAvailability(boolean status)
-
 UserBook
-borrowBook()
-
-returnBook()
-
-viewBorrowHistory()
-
 Stage 3
 Nâng cấp ứng dụng:
 

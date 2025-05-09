@@ -13,6 +13,6 @@ public class UserBook {
     }
 
     public String toString() {
-        return user.toString() + " borrowed " + book.toString() + " on " + borrowDate;
+        return user.toString() + " Trạng thái: Đã mượn " + book.toString() + " mượn ngày " + borrowDate;
     }
 }

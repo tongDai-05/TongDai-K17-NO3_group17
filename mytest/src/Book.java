@@ -11,6 +11,6 @@ public class Book {
     }
 
     public String toString() {
-        return "Book(ID: " + bookId + ", Title: '" + title + "', Author: " + author + ")";
+        return "Book(ID: " + bookId + ", tên sách: '" + title + "', tác giả: " + author + ")";
     }
 }

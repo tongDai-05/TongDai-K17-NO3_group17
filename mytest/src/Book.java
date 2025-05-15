@@ -10,7 +10,7 @@ public class Book {
         this.author = author;
     }
 
-    public String toString() {
+    public String inchuoiString() {
         return "Book(ID: " + bookId + ", tên sách: '" + title + "', tác giả: " + author + ")";
     }
 }

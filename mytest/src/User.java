@@ -10,7 +10,7 @@ public class User {
         this.email = email;
     }
 
-    public String toString() {
+    public String inchuoiString() {
         return "User(ID: " + userId + ", Name: " + name + ", Email: " + email + ")";
     }
 }

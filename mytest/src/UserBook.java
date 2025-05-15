@@ -1,4 +1,3 @@
-// UserBook.java
 import java.time.LocalDate;
 
 public class UserBook {

@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        GiaiThua gt = new GiaiThua();
+        dequiGiaiThua gt = new dequiGiaiThua();
 
         System.out.print("Nhập số nguyên n để tính giai thừa: ");
         int n = scanner.nextInt();

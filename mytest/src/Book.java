@@ -1,3 +1,5 @@
+
+package mytest;
 public class Book {
     private String bookId;
     private String title;

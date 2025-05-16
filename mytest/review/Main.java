@@ -1,9 +1,11 @@
 package mytest.review;
 
-public class Main {
-    public static void main(String[] args) {
-        Flower f = new Flower();
-        System.out.println("Petal count: " + f.petalCount);
-        System.out.println("s: " + f.s);
+public static void main(String[] args) {
+        dequi gt = new dequi(); // Tạo đối tượng
+
+        int n = 5;
+        int ketQua = gt.tinhdequi(n);
+
+        System.out.println("Giai thừa của " + n + " là: " + ketQua);
     }
 }

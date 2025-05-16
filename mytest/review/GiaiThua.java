@@ -1,6 +1,6 @@
 package mytest.review;
 
-public class dequiGiaiThua {
+public class GiaiThua {
     public int tinhGiaiThua(int n) {
         if (n == 0 || n == 1) {
             return 1;

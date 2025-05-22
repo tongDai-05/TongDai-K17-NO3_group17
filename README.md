@@ -35,3 +35,9 @@ Quản lý số lượng sách thay vì chỉ trạng thái có/không.
 Phát triển giao diện (Console hoặc GUI nhỏ).
 
 link repo :https://github.com/tongDai-05/TongDai-K17-NO3_group17
+
+# sơ đồ
+
+## Sơ dồ hành vi
+
+<img src="img/sodo.jpeg">

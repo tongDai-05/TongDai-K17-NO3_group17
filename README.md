@@ -41,3 +41,6 @@ link repo :https://github.com/tongDai-05/TongDai-K17-NO3_group17
 ## Sơ dồ hành vi
 
 <img src="img/sodo.jpg">
+## sơ đồ class diagam
+
+<img src="img/classdiagram.jpg">

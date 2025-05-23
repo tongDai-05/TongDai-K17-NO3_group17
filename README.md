@@ -43,9 +43,10 @@ Mở rộng (tuỳ chọn):
 link repo :https://github.com/tongDai-05/TongDai-K17-NO3_group17
 
 Nội dung 02: Sơ đồ diagram của bài tập lớn
-![sodo](https://github.com/user-attachments/assets/637a08a4-2cc5-4266-94a4-2f3b767b1c7a)
+![classdiagram](https://github.com/user-attachments/assets/38f6c7b1-0ae6-46d7-b7e9-b287c1be4901)
 
 
-Nội dung 03: 
 
-<img src="img/classdiagram.jpg">
+Nội dung 03: 03 sơ đồ Behavioural Diagram của bài tập lớn
+![sodo](https://github.com/user-attachments/assets/ba2a8f34-1d83-46bf-991f-dd4a50678234)
+

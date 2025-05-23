@@ -9,7 +9,7 @@ public class UserBook{
     }
 
     //cac em dang truy cap qua bien nen bien trong Book de public, con khong phai truy cap qua phuong thuc
-    
+
     public ArrayList<Book> getEditBook(String masach,String tensach ){
         for(int i=0; i < list.size(); i++){
             if(list.get(i).masach == masach){
@@ -20,18 +20,20 @@ public class UserBook{
         }
         return list;
     }
-    public ArrayList<Book> getDeleBook(String masach){
+    //dong 26 kiem tra lia dau vao 24 la masach khong co chu M hoa
+    public ArrayList<Book> getDeleBook(String ms){
         for(int i=0; i< list.size(); i++){
-            if(list.get(i).masach == MaSach){
+            if(list.get(i).masach == ms){
             list.remove(i);
         }
       } return list;
     }
-   
+
+//Nho xem lai cach truy nhap cac bien thanh vien cua doi tuong    
 public void printUserBook(){
     int len = list.size();
     for(int i=0; i< len; i++){
-        System.out.println("[" +list.get(i).masach + "]" +list.get(i).tensach+ "-" + trangthai);
+        System.out.println("[" +list.get(i).masach + "]" +list.get(i).tensach+ "-" + list.get(i).trangthaiMuon);
     }
  }
 }

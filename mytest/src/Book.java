@@ -1,17 +1,28 @@
+package qli_thuvien.src;
 
-package mytest;
 public class Book {
-    private String bookId;
-    private String title;
-    private String author;
+    public String masach;
+    public String tensach;
+    public String tacgia;
+    public boolean trangthaiMuon;
 
-    public Book(String bookId, String title, String author) {
-        this.bookId = bookId;
-        this.title = title;
-        this.author = author;
+    public Book(String masach, String tensach, String tacgia) {
+        this.masach = masach;
+        this.tensach = tensach;
+        this.tacgia = tacgia;
+        this.trangthaiMuon = false;
     }
 
-    public String inchuoiString() {
-        return "Book(ID: " + bookId + ", tên sách: '" + title + "', tác giả: " + author + ")";
+    public void muonsach() {
+        trangthaiMuon = true;
+    }
+
+    public void trasach() {
+        trangthaiMuon = false;
+    }
+
+    public void displayInfo() {
+        String trangthai = trangthaiMuon ? "Đã được mượn" : "Có sẵn";
+        System.out.println("[" + masach + "] " + tensach + " - " + tacgia + " - " + trangthai);
     }
 }

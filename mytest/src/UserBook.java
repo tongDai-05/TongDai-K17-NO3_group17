@@ -11,7 +11,7 @@ public class UserBook {
         this.borrowDate = borrowDate;
     }
 
-    public String inchuoiString() {
+    public String toString() {
         return user.toString() + " Trạng thái: Đã mượn " + book.toString() + " mượn ngày " + borrowDate;
     }
 }

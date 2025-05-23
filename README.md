@@ -1,4 +1,4 @@
-Nội dung 01: Xây dựng ứng dụng quản lý thư viện
+# Nội dung 01: Xây dựng ứng dụng quản lý thư viện
 
 Yêu cầu:
 
@@ -42,11 +42,11 @@ Mở rộng (tuỳ chọn):
 
 link repo :https://github.com/tongDai-05/TongDai-K17-NO3_group17
 
-Nội dung 02: Sơ đồ diagram của bài tập lớn
+# Nội dung 02: Sơ đồ diagram của bài tập lớn
 ![classdiagram](https://github.com/user-attachments/assets/38f6c7b1-0ae6-46d7-b7e9-b287c1be4901)
 
 
 
-Nội dung 03: 03 sơ đồ Behavioural Diagram của bài tập lớn
+# Nội dung 03: 03 sơ đồ Behavioural Diagram của bài tập lớn
 ![sodo](https://github.com/user-attachments/assets/ba2a8f34-1d83-46bf-991f-dd4a50678234)
 

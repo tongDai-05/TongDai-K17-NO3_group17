@@ -42,3 +42,4 @@ Mở rộng (tuỳ chọn):
 
 link repo :https://github.com/tongDai-05/TongDai-K17-NO3_group17
 
+Nội dung 02: Sơ đồ diagram của bài tập lớn

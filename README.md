@@ -43,7 +43,8 @@ Mở rộng (tuỳ chọn):
 link repo :https://github.com/tongDai-05/TongDai-K17-NO3_group17
 
 Nội dung 02: Sơ đồ diagram của bài tập lớn
-<img src="img/sodo.jpg">
+![sodo](https://github.com/user-attachments/assets/637a08a4-2cc5-4266-94a4-2f3b767b1c7a)
+
 
 Nội dung 03: 
 

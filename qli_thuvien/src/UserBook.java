@@ -2,15 +2,15 @@ package qli_thuvien.src;
 import java.util.ArrayList;
 
 public class UserBook{
-    ArrayList<Book> list= new ArrayList<Book>();
+    ArrayList<Book> list= new ArrayList<Book>(); // them danh sach
     public ArrayList<Book> addBook(Book ub){
         list.add(ub);
         return list;
     }
 
-    //cac em dang truy cap qua bien nen bien trong Book de public, con khong phai truy cap qua phuong thuc
+// sua sach
 
-    public ArrayList<Book> getEditBook(String masach,String tensach ){
+    public ArrayList<Book> getEditBook(String masach,String tensach ){  
         for(int i=0; i < list.size(); i++){
             if(list.get(i).masach == masach){
                 System.out.print("true");
@@ -20,7 +20,7 @@ public class UserBook{
         }
         return list;
     }
-    //dong 26 kiem tra lia dau vao 24 la masach khong co chu M hoa
+// xoa sach
     public ArrayList<Book> getDeleBook(String ms){
         for(int i=0; i< list.size(); i++){
             if(list.get(i).masach == ms){
@@ -29,7 +29,7 @@ public class UserBook{
       } return list;
     }
 
-//Nho xem lai cach truy nhap cac bien thanh vien cua doi tuong    
+ // doc
 public void printUserBook(){
     int len = list.size();
     for(int i=0; i< len; i++){

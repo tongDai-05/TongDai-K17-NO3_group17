@@ -1,50 +1,52 @@
-Group 1 Project: Xây dựng ứng dụng quản lý thư viện
+# Nội dung 01: Xây dựng ứng dụng quản lý thư viện
 
-Member
+Yêu cầu:
 
-Introduction
++ Giao diện: Java Spring Boot.
 
-Xây dựng ứng dụng quản lý thư viện với các chức năng cơ bản: quản lý người dùng (độc giả), sách, và hoạt động mượn-trả sách.
-Technolog Object-Oriented Programming (OOP)
+Chức năng quản lý Sách:
 
-Structural Diagram (Sơ đồ cấu trúc)
++ Thêm, sửa, xoá Sách.
 
-User (Độc giả thư viện)
++ Liệt kê thông tin Sách, có thể lọc theo: thể loại (category), tác giả (author), tựa đề (title).
 
-Book (Sách)
+Chức năng quản lý Thành viên:
 
-UserBook (Mượn sách)
++ Thêm, sửa, xoá Thành viên.
 
-Behavioural Diagram (Sơ đồ chức năng / thuật toán)
-Người dùng có thể đăng ký tài khoản.
++ Liệt kê thông tin Thành viên, có thể lọc theo: tên (name), loại thành viên (memberType).
 
-Người dùng có thể tìm kiếm sách.
+Chức năng quản lý Phiếu mượn:
 
-Người dùng có thể mượn và trả sách.
++ Thêm, sửa, xoá Phiếu mượn.
 
-Hệ thống ghi lại lịch sử mượn sách.
++ Liệt kê thông tin Phiếu mượn, có thể lọc theo: ngày mượn (loanDate), mã thành viên (memberId).
 
-Stage 1
-Định nghĩa các class cơ bản:
+Chức năng gán Sách cho Phiếu mượn:
 
-User (Thông tin độc giả)
-Book (Thông tin sách)
-UserBook (Thông tin mượn sách)
-Stage 2
-Bổ sung các hành vi (method) cơ bản cho các class:
-User
-Book
-UserBook
-Stage 3
-Nâng cấp ứng dụng:
++ Khi tạo Phiếu mượn, gán một hoặc nhiều Sách cho Thành viên.
 
-Thêm tính năng xử lý khi quá hạn trả sách (ví dụ tính phí phạt).
+Lưu trữ dữ liệu:
 
-Thêm tìm kiếm sách theo tên tác giả, tiêu đề.
++ Dữ liệu được ghi, đọc xuống file nhị phân.
 
-Quản lý số lượng sách thay vì chỉ trạng thái có/không.
++ Tạo các lớp liên quan để xử lý I/O cho đối tượng Sách, Thành viên, Phiếu mượn.
 
-Phát triển giao diện (Console hoặc GUI nhỏ).
+Quản lý bộ nhớ tạm:
+
++ Sử dụng các Collection (ArrayList, LinkedList, Map, ...) để lưu trữ dữ liệu trong bộ nhớ.
+
+Mở rộng (tuỳ chọn):
+
++ Thêm nghiệp vụ như đặt trước sách, thống kê báo cáo mượn trả.
 
 link repo :https://github.com/tongDai-05/TongDai-K17-NO3_group17
+
+# Nội dung 02: Sơ đồ diagram của bài tập lớn
+![classdiagram](https://github.com/user-attachments/assets/38f6c7b1-0ae6-46d7-b7e9-b287c1be4901)
+
+
+
+# Nội dung 03: 03 sơ đồ Behavioural Diagram của bài tập lớn
+![sodo](https://github.com/user-attachments/assets/ba2a8f34-1d83-46bf-991f-dd4a50678234)
 

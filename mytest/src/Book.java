@@ -1,10 +1,9 @@
-package qli_thuvien.src;
-
 public class Book {
     public String masach;
     public String tensach;
     public String tacgia;
     public boolean trangthaiMuon;
+    public String vitri;
 
     public Book(String masach, String tensach, String tacgia) {
         this.masach = masach;

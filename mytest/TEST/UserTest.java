@@ -1,7 +1,6 @@
-package test;
-import mytest.User;
-public class usertest {
-    public static void main(String[] args) {
+package mytest.TEST;
+public class UserTest {
+    public static void run(String[] args) {
         User user = new User("U001", "Nguyễn Văn A", "a@gmail.com");
 
         // In thông tin ban đầu

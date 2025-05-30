@@ -1,6 +1,7 @@
-package mytest.review;
+/*package mytest.review;
 
 import java.util.Scanner;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -25,7 +26,10 @@ public class Main {
             System.out.println("Giai thừa của " + n + " là: " + ketQua);
             System.out.println("Thời gian thực thi: " + duration + " nanoseconds");
         }
+        
 
         scanner.close();
     }
+    
 }
+*/

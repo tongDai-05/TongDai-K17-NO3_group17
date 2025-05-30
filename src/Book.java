@@ -1,17 +1,19 @@
-public class Book {
-    private String id;
-    private String title;
-    private String author;
-    private boolean isAvailable;
+package library;
 
-    public Book(String id, String title, String author) {
-        this.id = id;
+public class Book {
+    private String bookId;
+    private String title;
+
+    public Book(String bookId, String title) {
+        this.bookId = bookId;
         this.title = title;
-        this.author = author;
-        this.isAvailable = true;
     }
 
-    public void displayInfo() {
-        System.out.println("Book ID: " + id + ", Title: " + title + ", Author: " + author + ", Available: " + isAvailable);
+    public String getBookId() {
+        return bookId;
+    }
+
+    public String getTitle() {
+        return title;
     }
 }

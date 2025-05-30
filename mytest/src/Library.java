@@ -1,6 +1,10 @@
 
 import java.util.ArrayList;
+
 public class Library {
+
+    public Library(){};
+    
     ArrayList<Book> bookList = new ArrayList<>();
 
     // CREATE
@@ -44,6 +48,5 @@ public class Library {
 }
 
 
-}
 
 

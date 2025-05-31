@@ -1,10 +1,11 @@
 
+
 import java.util.ArrayList;
 
 public class Library {
 
-    public Library(){};
-    
+    public Library(Book book){};
+
     ArrayList<Book> bookList = new ArrayList<>();
 
     // CREATE

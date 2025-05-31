@@ -1,24 +1,14 @@
-package mytest.TEST;
-//import Book;
-//import mytest.Library;
-//import Library;
-
-
-import qli_thuvien.src.Book;
 
 public class chuyensachTest {
     public static void run() {
         System.out.println("=== TEST CHUYỂN SÁCH ===");
 
         // Tạo đối tượng thư viện
-        //code sai 
-
+        Library lib = new Library();
 
         // Thêm một vài sách
         Book s1 = new Book("S001", "Lập trình C", "Nguyễn Văn A", "Kho");
         Book s2 = new Book("S002", "Cơ sở dữ liệu", "Trần Thị B", "Phòng đọc");
-
-        Library lib= new Library(s1);
 
         lib.addBook(s1);
         lib.addBook(s2);

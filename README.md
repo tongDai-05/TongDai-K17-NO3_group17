@@ -4,6 +4,9 @@ Member
 
 Introduction
 
+TongDai
+Xây dựng ứng dụng quản lý thư viện với các chức năng cơ bản: quản lý người dùng (độc giả), sách, và hoạt động mượn-trả sách. Technolog Object-Oriented Programming (OOP)
+
 Xây dựng ứng dụng quản lý thư viện với các chức năng cơ bản: quản lý người dùng (độc giả), sách, và hoạt động mượn-trả sách.
 Technolog Object-Oriented Programming (OOP)
 
@@ -15,6 +18,9 @@ Book (Sách)
 
 UserBook (Mượn sách)
 
+ TongDai
+Behavioural Diagram (Sơ đồ chức năng / thuật toán) Người dùng có thể đăng ký tài khoản.
+
 Behavioural Diagram (Sơ đồ chức năng / thuật toán)
 Người dùng có thể đăng ký tài khoản.
 
@@ -23,6 +29,11 @@ Người dùng có thể tìm kiếm sách.
 Người dùng có thể mượn và trả sách.
 
 Hệ thống ghi lại lịch sử mượn sách.
+
+ TongDai
+Stage 1 Định nghĩa các class cơ bản:
+
+User (Thông tin độc giả) Book (Thông tin sách) UserBook (Thông tin mượn sách) Stage 2 Bổ sung các hành vi (method) cơ bản cho các class: User Book UserBook Stage 3 Nâng cấp ứng dụng:
 
 Stage 1
 Định nghĩa các class cơ bản:
@@ -37,6 +48,7 @@ Book
 UserBook
 Stage 3
 Nâng cấp ứng dụng:
+ 
 
 Thêm tính năng xử lý khi quá hạn trả sách (ví dụ tính phí phạt).
 
@@ -48,3 +60,14 @@ Phát triển giao diện (Console hoặc GUI nhỏ).
 
 link repo :https://github.com/tongDai-05/TongDai-K17-NO3_group17
 
+ TongDai
+# sơ đồ
+
+## Sơ dồ hành vi
+
+<img src="img/sodo1.jpg">
+## sơ đồ class diagam
+
+<img src="img/classdiagram.jpg">
+
+ 

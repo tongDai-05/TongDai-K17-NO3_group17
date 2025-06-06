@@ -69,6 +69,6 @@ link repo :https://github.com/tongDai-05/TongDai-K17-NO3_group17
 <img src="img/classdiagram.jpg">
 
 ## sơ đồ mượn trả sách
-<img src="img/luudomuonsach.jpg">
+<img src="img/luudomuonsach1.jpg">
 
  

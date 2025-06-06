@@ -23,7 +23,10 @@ public class MuonSachTest {
 
         System.out.println("\nDanh sách mượn sách:");
         for (UserBook ub : dsMuon) {
-            System.out.println(ub.getUser().getName() + " mượn " + ub.getBook().tensach + " | Hạn trả: " + ub.getDueDate());
+            System.out.println(ub.getUser().getName() + " mượn " + ub.getBook().tensach +
+            " | Ngày mượn: " + ub.getBorrowDate() +
+            " | Hạn trả: " + ub.getDueDate());
+
         }
 
     }

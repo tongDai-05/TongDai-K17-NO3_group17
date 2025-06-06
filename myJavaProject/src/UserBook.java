@@ -1,4 +1,3 @@
-// UserBook.java
 import java.time.LocalDate;
 
 public class UserBook {
@@ -14,7 +13,19 @@ public class UserBook {
         this.dueDate = borrowDate.plusDays(days);
     }
 
-    public LocalDate getDueDate() { return dueDate; }
-    public User getUser() { return user; }
-    public Book getBook() { return book; }
+    public LocalDate getDueDate() {
+        return dueDate;
+    }
+
+    public LocalDate getBorrowDate() {
+        return borrowDate;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public Book getBook() {
+        return book;
+    }
 }

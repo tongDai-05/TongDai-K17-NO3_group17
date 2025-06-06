@@ -1,4 +1,3 @@
-// Library.java
 import java.util.ArrayList;
 import java.time.LocalDate;
 
@@ -31,8 +30,8 @@ public class Library {
     public void muonSach(String masach, User user, ArrayList<UserBook> dsMuon) {
         for (Book b : bookList) {
             if (b.masach.equalsIgnoreCase(masach)) {
-                if (!b.trangthaiMuon) {
-                    b.muonsach();
+                if (!b.trangThaiMuon) {
+                    b.muonSach();
                     LocalDate today = LocalDate.now();
                     UserBook ub = new UserBook(user, b, today, 14);
                     dsMuon.add(ub);
@@ -49,7 +48,7 @@ public class Library {
 
     public void inSachCoTheMuon() {
         for (Book b : bookList) {
-            if (!b.trangthaiMuon) {
+            if (!b.trangThaiMuon) {
                 b.displayInfo();
             }
         }
@@ -58,9 +57,9 @@ public class Library {
     public void chuyenSach(String maSach, String viTriMoi) {
         for (Book b : bookList) {
             if (b.masach.equals(maSach)) {
-                String viTriCu = b.vitri;
-                b.vitri = viTriMoi;
-                System.out.println("Đã chuyển sách \"" + b.tensach + "\" từ " + viTriCu + " sang " + viTriMoi);
+                String viTriCu = b.viTri;
+                b.viTri = viTriMoi;
+                System.out.println("Đã chuyển sách " + b.tensach + " từ " + viTriCu + " sang " + viTriMoi);
                 return;
             }
         }

@@ -1,32 +1,45 @@
 // Book.java
-public class Book {
-    public String masach;
-    public String tensach;
-    public String tacgia;
-    public boolean trangthaiMuon;
-    public String vitri;
 
-    public Book(String masach, String tensach, String tacgia, String vitri) {
+public class Book {
+    // Thuộc tính
+    public String masach;           // Mã sách
+    public String tensach;          // Tên sách
+    public String tacgia;           // Tác giả
+    public boolean trangThaiMuon;   // Trạng thái mượn: true = đã mượn, false = có sẵn
+    public String viTri;            // Vị trí sách trong thư viện
+
+    // Constructor - Khởi tạo thông tin sách
+    public Book(String masach, String tensach, String tacgia, String viTri) {
         this.masach = masach;
         this.tensach = tensach;
         this.tacgia = tacgia;
-        this.vitri = vitri;
-        this.trangthaiMuon = false;
+        this.viTri = viTri;
+        this.trangThaiMuon = false; // Mặc định sách chưa được mượn
     }
 
-    public void muonsach() {
-        trangthaiMuon = true;
+    // Đánh dấu sách là đã mượn
+    public void muonSach() {
+        trangThaiMuon = true;
     }
 
-    public void trasach() {
-        trangthaiMuon = false;
+    // Đánh dấu sách là đã trả
+    public void traSach() {
+        trangThaiMuon = false;
     }
 
+    // Hiển thị thông tin sách
     public void displayInfo() {
-        String trangthai = trangthaiMuon ? "\u0110\u00e3 \u0111\u01b0\u1ee3c m\u01b0\u1ee3n" : "C\u00f3 s\u1eb5n";
-        System.out.println("[" + masach + "] " + tensach + " - " + tacgia + " - " + vitri + " - " + trangthai);
+        String trangThai = trangThaiMuon ? "Đã được mượn" : "Có sẵn";
+        System.out.println("[" + masach + "] " + tensach + " - " + tacgia + " - " + viTri + " - " + trangThai);
     }
 
-    public String getTenSach() { return tensach; }
-    public boolean isMuon() { return trangthaiMuon; }
+    // Getter - lấy tên sách
+    public String getTenSach() {
+        return tensach;
+    }
+
+    // Getter - kiểm tra sách có đang được mượn không
+    public boolean isMuon() {
+        return trangThaiMuon;
+    }
 }

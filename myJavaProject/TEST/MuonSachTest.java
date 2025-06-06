@@ -3,7 +3,6 @@ import java.util.ArrayList;
 
 public class MuonSachTest {
     public static void run() {
-        System.out.println("=== TEST MƯỢN SÁCH ===");
 
         Library lib = new Library();
         ArrayList<UserBook> dsMuon = new ArrayList<>();
@@ -27,6 +26,5 @@ public class MuonSachTest {
             System.out.println(ub.getUser().getName() + " mượn " + ub.getBook().tensach + " | Hạn trả: " + ub.getDueDate());
         }
 
-        System.out.println("=== KẾT THÚC TEST ===");
     }
 }

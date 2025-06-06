@@ -1,10 +1,10 @@
 public class Main {
     public static void main(String[] args) {
         System.out.println("=== BẮT ĐẦU TEST ===");
-        chuyensachTest.run();
-        BookTest.run();
-        UserBook.run();
-        UserTest.run();
+        MuonSachTest.run();
+        BookTest.run(args);
+        UserBookTest.run(args);
+        UserTest.run(args);
         System.out.println("=== KẾT THÚC TEST ===");
     }
 }

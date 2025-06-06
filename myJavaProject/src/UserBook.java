@@ -1,16 +1,20 @@
+// UserBook.java
 import java.time.LocalDate;
+
 public class UserBook {
     private User user;
     private Book book;
     private LocalDate borrowDate;
+    private LocalDate dueDate;
 
-    public UserBook(User user, Book book, LocalDate borrowDate) {
+    public UserBook(User user, Book book, LocalDate borrowDate, int days) {
         this.user = user;
         this.book = book;
         this.borrowDate = borrowDate;
+        this.dueDate = borrowDate.plusDays(days);
     }
 
-    public String toString() {
-        return user.toString() + " Trạng thái: Đã mượn " + book.toString() + " mượn ngày " + borrowDate;
-    }
+    public LocalDate getDueDate() { return dueDate; }
+    public User getUser() { return user; }
+    public Book getBook() { return book; }
 }

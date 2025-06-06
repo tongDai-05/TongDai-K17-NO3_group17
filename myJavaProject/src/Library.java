@@ -24,7 +24,7 @@ public class Library {
             }
         }
         if (!found) {
-            System.out.println("Kh\u00f4ng t\u00ecm th\u1ea5y s\u00e1ch ph\u00f9 h\u1ee3p.");
+            System.out.println("Không tìm thấy sách phù hợp.");
         }
     }
 
@@ -36,15 +36,15 @@ public class Library {
                     LocalDate today = LocalDate.now();
                     UserBook ub = new UserBook(user, b, today, 14);
                     dsMuon.add(ub);
-                    System.out.println("M\u01b0\u1ee3n th\u00e0nh c\u00f4ng sách: " + b.tensach);
-                    System.out.println("H\u1ea1n tr\u1ea3: " + ub.getDueDate());
+                    System.out.println("Mượn thành công sách: " + b.tensach);
+                    System.out.println("Hạn trả: " + ub.getDueDate());
                 } else {
-                    System.out.println("S\u00e1ch \u0111\u00e3 \u0111\u01b0\u1ee3c m\u01b0\u1ee3n.");
+                    System.out.println("Sách đã được mượn.");
                 }
                 return;
             }
         }
-        System.out.println("Kh\u00f4ng t\u00ecm th\u1ea5y sách có mã: " + masach);
+        System.out.println("Không tìm thấy sách có mã: " + masach);
     }
 
     public void inSachCoTheMuon() {
@@ -60,7 +60,7 @@ public class Library {
             if (b.masach.equals(maSach)) {
                 String viTriCu = b.vitri;
                 b.vitri = viTriMoi;
-                System.out.println("\u0110\u00e3 chuy\u1ec3n sách " + b.tensach + " t\u1eeb " + viTriCu + " sang " + viTriMoi);
+                System.out.println("Đã chuyển sách \"" + b.tensach + "\" từ " + viTriCu + " sang " + viTriMoi);
                 return;
             }
         }

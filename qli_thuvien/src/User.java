@@ -7,6 +7,8 @@ public class User{
         this.id = id;
         this.name = name;
     }
+    public String getName(){ return name; }
+    
     public void displayInfo(){
         System.out.println("["+ id +"]" + name);
     }

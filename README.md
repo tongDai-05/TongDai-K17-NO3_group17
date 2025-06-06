@@ -64,10 +64,11 @@ link repo :https://github.com/tongDai-05/TongDai-K17-NO3_group17
 # sơ đồ
 
 ## Sơ dồ hành vi
-
 <img src="img/sodo1.jpg">
 ## sơ đồ class diagam
-
 <img src="img/classdiagram.jpg">
+
+## sơ đồ mượn trả sách
+<img src="img/luudomuonsach.jpg">
 
  

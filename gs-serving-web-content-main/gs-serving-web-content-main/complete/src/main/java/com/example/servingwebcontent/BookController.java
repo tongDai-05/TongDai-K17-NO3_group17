@@ -14,7 +14,7 @@ public class BookController {
 
     private final BookAiven bookAiven;
 
-    // ✅ Inject BookAiven để test mock được
+    // ✅ Inject BookAiven để mock khi test
     public BookController(BookAiven bookAiven) {
         this.bookAiven = bookAiven;
     }
@@ -33,7 +33,7 @@ public class BookController {
         return "redirect:/books";
     }
 
-    @PostMapping("/borrowBook")
+    @PostMapping("/borrowbook")
     public String borrowBook(@RequestParam String bookId) {
         BorrowBookAiven bba = new BorrowBookAiven();
         bba.borrowBook(bookId);
@@ -47,7 +47,8 @@ public class BookController {
         return "redirect:/books";
     }
 
-    @GetMapping("/borrowedBooks")
+    // ✅ Đã sửa: dùng /borrowedbooks chữ thường để khớp test
+    @GetMapping("/borrowedbooks")
     public String getBorrowedBooks(Model model) {
         model.addAttribute("books", bookAiven.getBorrowedBooks());
         return "borrowedbooks";

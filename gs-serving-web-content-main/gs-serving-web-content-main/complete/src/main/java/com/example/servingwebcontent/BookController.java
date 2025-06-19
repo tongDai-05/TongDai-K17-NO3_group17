@@ -12,9 +12,15 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class BookController {
 
+    private final BookAiven bookAiven;
+
+    // ✅ Inject BookAiven để test mock được
+    public BookController(BookAiven bookAiven) {
+        this.bookAiven = bookAiven;
+    }
+
     @GetMapping("/books")
     public String getBooks(Model model) {
-        BookAiven bookAiven = new BookAiven();
         model.addAttribute("books", bookAiven.getAllBooks());
         return "booklist";
     }
@@ -22,7 +28,8 @@ public class BookController {
     @PostMapping("/addBook")
     public String addBook(@RequestParam String title, @RequestParam String author, Model model) {
         InsertBookAiven iba = new InsertBookAiven();
-        iba.insertBook(title, author);
+        Book book = new Book("b" + System.currentTimeMillis(), title, author, "N/A"); // vị trí có thể tùy chỉnh
+        iba.insertBook(book);
         return "redirect:/books";
     }
 
@@ -38,5 +45,11 @@ public class BookController {
         ReturnBookAiven rba = new ReturnBookAiven();
         rba.returnBook(bookId);
         return "redirect:/books";
+    }
+
+    @GetMapping("/borrowedBooks")
+    public String getBorrowedBooks(Model model) {
+        model.addAttribute("books", bookAiven.getBorrowedBooks());
+        return "borrowedbooks";
     }
 }

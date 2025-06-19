@@ -1,7 +1,6 @@
-package com.example.servingwebcontent.controller;
+package com.example.servingwebcontent;
 
-import com.example.servingwebcontent.User;
-import com.example.servingwebcontent.database.insertToAiven;
+import com.example.servingwebcontent.database.InsertToAiven;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -12,11 +11,10 @@ import java.util.ArrayList;
 @RequestMapping("/user")
 public class UserController {
 
-    // Trang hiển thị danh sách user (tạm thời chưa load từ database)
     @GetMapping("/list")
     public String listUsers(Model model) {
         ArrayList<User> users = new ArrayList<>();
-        // Demo 2 user mẫu
+
         User u1 = new User();
         u1.setUserName("Nguyen Van A");
         u1.setAddress("Hanoi");
@@ -34,17 +32,15 @@ public class UserController {
         return "userlist";
     }
 
-    // Hiển thị form thêm user
     @GetMapping("/add")
     public String showAddUserForm(Model model) {
         model.addAttribute("user", new User());
         return "adduser";
     }
 
-    // Xử lý thêm user
     @PostMapping("/add")
     public String addUser(@ModelAttribute User user, Model model) {
-        insertToAiven db = new insertToAiven();
+        InsertToAiven db = new InsertToAiven();
         db.insertToAivenDb(user);
         model.addAttribute("message", "Đã thêm người dùng thành công!");
         return "redirect:/user/list";

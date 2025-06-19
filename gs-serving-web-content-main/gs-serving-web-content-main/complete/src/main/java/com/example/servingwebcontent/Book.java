@@ -1,45 +1,38 @@
-// Book.java
+package com.example.servingwebcontent;
 
 public class Book {
-    // Thuộc tính
-    public String masach;           // Mã sách
-    public String tensach;          // Tên sách
-    public String tacgia;           // Tác giả
-    public boolean trangThaiMuon;   // Trạng thái mượn: true = đã mượn, false = có sẵn
-    public String viTri;            // Vị trí sách trong thư viện
+    private String bookID;
+    private String title;
+    private String author;
+    private boolean borrowed;
+    private String viTri; // 👈 Thêm dòng này để khai báo viTri
 
-    // Constructor - Khởi tạo thông tin sách
-    public Book(String masach, String tensach, String tacgia, String viTri) {
-        this.masach = masach;
-        this.tensach = tensach;
-        this.tacgia = tacgia;
+    public Book() {}
+
+    public Book(String bookID, String title, String author, String viTri) {
+        this.bookID = bookID;
+        this.title = title;
+        this.author = author;
         this.viTri = viTri;
-        this.trangThaiMuon = false; // Mặc định sách chưa được mượn
+        this.borrowed = false;
     }
 
-    // Đánh dấu sách là đã mượn
+    public String getBookID() { return bookID; }
+    public void setBookID(String bookID) { this.bookID = bookID; }
+
+    public String getTitle() { return title; }
+    public void setTitle(String title) { this.title = title; }
+
+    public String getAuthor() { return author; }
+    public void setAuthor(String author) { this.author = author; }
+
+    public boolean isBorrowed() { return borrowed; }
+    public void setBorrowed(boolean borrowed) { this.borrowed = borrowed; }
+
+    public String getViTri() { return viTri; }               // 👈 Getter
+    public void setViTri(String viTri) { this.viTri = viTri; } // 👈 Setter
     public void muonSach() {
-        trangThaiMuon = true;
-    }
+    this.borrowed = true;
+}
 
-    // Đánh dấu sách là đã trả
-    public void traSach() {
-        trangThaiMuon = false;
-    }
-
-    // Hiển thị thông tin sách
-    public void displayInfo() {
-        String trangThai = trangThaiMuon ? "Đã được mượn" : "Có sẵn";
-        System.out.println("[" + masach + "] " + tensach + " - " + tacgia + " - " + viTri + " - " + trangThai);
-    }
-
-    // Getter - lấy tên sách
-    public String getTenSach() {
-        return tensach;
-    }
-
-    // Getter - kiểm tra sách có đang được mượn không
-    public boolean isMuon() {
-        return trangThaiMuon;
-    }
 }

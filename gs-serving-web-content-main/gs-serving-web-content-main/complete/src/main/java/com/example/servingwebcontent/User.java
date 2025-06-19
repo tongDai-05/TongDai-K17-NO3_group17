@@ -1,23 +1,27 @@
-// User.java
+package com.example.servingwebcontent;
+
 public class User {
-    private String id;
-    private String name;
-    private String email;
+    private String userID;
+    private String userName;
+    private String address;
 
-    public User(String id, String name, String email) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-    }
+    public User() {} // constructor mặc định
 
-    public String getId() { return id; }
-    public String getName() { return name; }
-    public String getEmail() { return email; }
+    public String getUserID() { return userID; }
+    public void setUserID(String userID) { this.userID = userID; }
 
-    public void setName(String name) { this.name = name; }
-    public void setEmail(String email) { this.email = email; }
+    public String getUserName() { return userName; }
+    public void setUserName(String userName) { this.userName = userName; }
+
+    public String getAddress() { return address; }
+    public void setAddress(String address) { this.address = address; }
 
     public void displayInfo() {
-        System.out.println("[" + id + "] " + name);
+        System.out.println("[" + userID + "] " + userName + " - " + address);
+    }
+
+    // 👇 Thêm dòng này để tránh lỗi ở LoginController
+    public void printUserName() {
+        System.out.println("Tên người dùng: " + userName);
     }
 }

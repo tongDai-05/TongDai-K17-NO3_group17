@@ -1,8 +1,6 @@
 package com.example.servingwebcontent;
 
 import com.example.servingwebcontent.database.BookAiven;
-import com.example.servingwebcontent.Book;
-import com.example.servingwebcontent.BookController;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,7 +44,7 @@ public class BookControllerTest {
 
         when(bookAiven.getBorrowedBooks()).thenReturn(Arrays.asList(book1));
 
-        mockMvc.perform(get("/borrowedBooks"))
+        mockMvc.perform(get("/borrowedbooks"))
                 .andExpect(status().isOk())
                 .andExpect(model().attributeExists("books"))
                 .andExpect(view().name("borrowedbooks"))

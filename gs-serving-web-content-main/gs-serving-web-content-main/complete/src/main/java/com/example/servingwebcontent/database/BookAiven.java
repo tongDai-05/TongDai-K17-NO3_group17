@@ -18,10 +18,11 @@ public class BookAiven {
 
             while (rs.next()) {
                 Book book = new Book();
-                book.setBookID(rs.getString("bookID"));
+                book.setId(rs.getString("bookID"));  // Đổi từ setBookID → setId
                 book.setTitle(rs.getString("title"));
                 book.setAuthor(rs.getString("author"));
                 book.setBorrowed(rs.getBoolean("borrowed"));
+                book.setViTri(rs.getString("viTri")); // Nếu bạn có cột này trong DB
                 books.add(book);
             }
 
@@ -31,7 +32,6 @@ public class BookAiven {
         return books;
     }
 
-    // ✅ Thêm phương thức lọc sách đã mượn
     public List<Book> getBorrowedBooks() {
         List<Book> borrowedBooks = new ArrayList<>();
         for (Book book : getAllBooks()) {

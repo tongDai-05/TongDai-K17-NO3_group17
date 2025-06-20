@@ -13,7 +13,7 @@
             <th>Trạng thái</th>
         </tr>
         <tr th:each="book : ${books}">
-            <td th:text="${book.id}">Mã</td>
+            <td th:text="${book.bookID}">Mã</td>
             <td th:text="${book.title}">Tiêu đề</td>
             <td th:text="${book.author}">Tác giả</td>
             <td th:text="${book.borrowed} ? 'Đã mượn' : 'Có sẵn'"></td>

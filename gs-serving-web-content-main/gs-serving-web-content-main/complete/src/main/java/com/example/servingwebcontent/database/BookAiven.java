@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.example.servingwebcontent.Book;
+import org.springframework.stereotype.Component;  // ✅ Import Component
 
+@Component  // ✅ Đánh dấu để Spring nhận diện là bean
 public class BookAiven {
 
     public List<Book> getAllBooks() {
@@ -18,11 +20,11 @@ public class BookAiven {
 
             while (rs.next()) {
                 Book book = new Book();
-                book.setId(rs.getString("bookID"));  // Đổi từ setBookID → setId
+                book.setId(rs.getString("bookID"));
                 book.setTitle(rs.getString("title"));
                 book.setAuthor(rs.getString("author"));
                 book.setBorrowed(rs.getBoolean("borrowed"));
-                book.setViTri(rs.getString("viTri")); // Nếu bạn có cột này trong DB
+                book.setViTri(rs.getString("viTri")); // Nếu có cột này
                 books.add(book);
             }
 

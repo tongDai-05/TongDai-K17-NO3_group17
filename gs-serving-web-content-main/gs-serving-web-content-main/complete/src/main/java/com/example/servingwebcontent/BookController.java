@@ -16,17 +16,14 @@ public class BookController {
 
     private final BookAiven bookAiven;
 
-    // ✅ Inject BookAiven để mock khi test
     public BookController(BookAiven bookAiven) {
         this.bookAiven = bookAiven;
     }
 
-    
-
     @PostMapping("/addBook")
     public String addBook(@RequestParam String title, @RequestParam String author, Model model) {
         InsertBookAiven iba = new InsertBookAiven();
-        Book book = new Book("b" + System.currentTimeMillis(), title, author, "N/A"); // vị trí có thể tùy chỉnh
+        Book book = new Book("b" + System.currentTimeMillis(), title, author, "N/A");
         iba.insertBook(book);
         return "redirect:/books";
     }
@@ -50,16 +47,23 @@ public class BookController {
         model.addAttribute("books", bookAiven.getBorrowedBooks());
         return "borrowedbooks";
     }
+
     @GetMapping("/books")
     public String getBooks(@RequestParam(value = "keyword", required = false) String keyword, Model model) {
-    List<Book> books;
-    if (keyword != null && !keyword.isEmpty()) {
-        books = bookAiven.searchBooks(keyword);  // Tìm theo từ khóa
-    } else {
-        books = bookAiven.getAllBooks();         // Nếu không có từ khóa, hiển thị tất cả
+        List<Book> books;
+        if (keyword != null && !keyword.isEmpty()) {
+            books = bookAiven.searchBooks(keyword);
+        } else {
+            books = bookAiven.getAllBooks();
+        }
+        model.addAttribute("books", books);
+        return "booklist";
     }
-    model.addAttribute("books", books);
-    return "booklist";  // Gọi file HTML bên trên
-}
 
+    @GetMapping("/")
+    public String home() {
+        return "redirect:/greeting";
+    }
+
+  
 }

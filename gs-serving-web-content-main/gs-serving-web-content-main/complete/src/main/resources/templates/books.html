@@ -1,0 +1,44 @@
+<!-- booklist.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thư viện</title>
+</head>
+<body>
+    <h1>Danh sách sách</h1>
+
+    <form method="get" th:action="@{/books}">
+        <input type="text" name="keyword" placeholder="Tìm sách..." />
+        <button type="submit">Tìm</button>
+        <a th:href="@{/books}">Hiển thị tất cả</a>
+    </form>
+
+    <table border="1">
+        <tr>
+            <th>ID</th><th>Tiêu đề</th><th>Tác giả</th><th>Vị trí</th><th>Trạng thái</th><th>Hành động</th>
+        </tr>
+        <tr th:each="book : ${books}">
+            <td th:text="${book.id}"></td>
+            <td th:text="${book.title}"></td>
+            <td th:text="${book.author}"></td>
+            <td th:text="${book.viTri}"></td>
+            <td th:text="${book.borrowed} ? 'Đã mượn' : 'Có sẵn'"></td>
+            <td>
+                <form th:action="@{/borrowbook}" method="post" th:if="${!book.borrowed}">
+                    <input type="hidden" name="bookId" th:value="${book.id}" />
+                    <button type="submit">Mượn</button>
+                </form>
+                <form th:action="@{/returnBook}" method="post" th:if="${book.borrowed}">
+                    <input type="hidden" name="bookId" th:value="${book.id}" />
+                    <button type="submit">Trả</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+
+    <br>
+    <a th:href="@{/borrowedbooks}">Ảnh sách đã mượn</a> |
+    <a th:href="@{/addbook}">Thêm sách</a>
+</body>
+</html>

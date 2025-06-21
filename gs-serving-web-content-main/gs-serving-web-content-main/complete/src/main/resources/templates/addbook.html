@@ -6,11 +6,12 @@
 </head>
 <body>
     <h1>Thêm sách mới</h1>
-    <form action="/addBook" method="post">
+    <form th:action="@{/addbook}" method="post">
         <label>Tiêu đề:</label> <input type="text" name="title" required><br>
         <label>Tác giả:</label> <input type="text" name="author" required><br>
+        <label>Vị trí:</label> <input type="text" name="viTri" required><br>
         <button type="submit">Thêm sách</button>
     </form>
-    <a href="/books">Quay lại danh sách</a>
+    <a th:href="@{/books}">Quay lại danh sách</a>
 </body>
 </html>

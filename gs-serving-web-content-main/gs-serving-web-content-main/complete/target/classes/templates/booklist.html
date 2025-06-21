@@ -1,55 +1,34 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
     <title>Danh sách sách</title>
 </head>
 <body>
-<h1>📚 Danh sách sách</h1>
-
-<table border="1">
-    <thead>
+    <h1>Danh sách sách</h1>
+    <table border="1">
         <tr>
-            <th>Mã sách</th>
+            <th>ID</th>
             <th>Tên sách</th>
             <th>Tác giả</th>
-            <th>Kệ sách</th>
             <th>Trạng thái</th>
-            <th>Thao tác</th>
+            <th>Hành động</th>
         </tr>
-    </thead>
-    <tbody>
         <tr th:each="book : ${books}">
-            <td th:text="${book.id}">ID</td>
-            <td th:text="${book.title}">Tiêu đề</td>
-            <td th:text="${book.author}">Tác giả</td>
-            <td th:text="${book.viTri}">Vị trí</td>
-            <td th:text="${book.borrowed} ? 'Đã mượn' : 'Có sẵn'">Trạng thái</td>
+            <td th:text="${book.id}"></td>
+            <td th:text="${book.title}"></td>
+            <td th:text="${book.author}"></td>
+            <td th:text="${book.isBorrowed ? 'Đã mượn' : 'Có sẵn'}"></td>
             <td>
-                <form th:if="${!book.borrowed}" action="/borrowBook" method="post" style="display:inline;">
-                    <input type="hidden" name="bookId" th:value="${book.id}" />
+                <form th:action="@{/borrow}" method="post" th:if="${!book.isBorrowed}">
+                    <input type="hidden" name="id" th:value="${book.id}" />
                     <button type="submit">Mượn</button>
                 </form>
-                <form th:if="${book.borrowed}" action="/returnBook" method="post" style="display:inline;">
-                    <input type="hidden" name="bookId" th:value="${book.id}" />
+                <form th:action="@{/return}" method="post" th:if="${book.isBorrowed}">
+                    <input type="hidden" name="id" th:value="${book.id}" />
                     <button type="submit">Trả</button>
                 </form>
             </td>
         </tr>
-    </tbody>
-</table>
-
-<br>
-
-<h2>➕ Thêm sách mới</h2>
-<form action="/addBook" method="post">
-    <label>Tiêu đề: <input type="text" name="title" required /></label><br><br>
-    <label>Tác giả: <input type="text" name="author" required /></label><br><br>
-    <button type="submit">Thêm sách</button>
-</form>
-
-<br><br>
-<a href="/borrowedBooks">📖 Xem sách đã mượn →</a>
-
+    </table>
 </body>
 </html>

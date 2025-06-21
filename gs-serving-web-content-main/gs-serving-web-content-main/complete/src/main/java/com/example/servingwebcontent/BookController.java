@@ -5,6 +5,8 @@ import com.example.servingwebcontent.database.InsertBookAiven;
 import com.example.servingwebcontent.database.BorrowBookAiven;
 import com.example.servingwebcontent.database.ReturnBookAiven;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -19,11 +21,7 @@ public class BookController {
         this.bookAiven = bookAiven;
     }
 
-    @GetMapping("/books")
-    public String getBooks(Model model) {
-        model.addAttribute("books", bookAiven.getAllBooks());
-        return "booklist";
-    }
+    
 
     @PostMapping("/addBook")
     public String addBook(@RequestParam String title, @RequestParam String author, Model model) {
@@ -47,10 +45,21 @@ public class BookController {
         return "redirect:/books";
     }
 
-    // ✅ Đã sửa: dùng /borrowedbooks chữ thường để khớp test
     @GetMapping("/borrowedbooks")
     public String getBorrowedBooks(Model model) {
         model.addAttribute("books", bookAiven.getBorrowedBooks());
         return "borrowedbooks";
     }
+    @GetMapping("/books")
+    public String getBooks(@RequestParam(value = "keyword", required = false) String keyword, Model model) {
+    List<Book> books;
+    if (keyword != null && !keyword.isEmpty()) {
+        books = bookAiven.searchBooks(keyword);  // Tìm theo từ khóa
+    } else {
+        books = bookAiven.getAllBooks();         // Nếu không có từ khóa, hiển thị tất cả
+    }
+    model.addAttribute("books", books);
+    return "booklist";  // Gọi file HTML bên trên
+}
+
 }

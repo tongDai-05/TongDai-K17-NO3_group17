@@ -1,23 +1,25 @@
 package com.example.servingwebcontent;
 
 public class Book {
-    private String id;          // Đổi từ bookID → id
+    private String id;         
     private String title;
     private String author;
     private boolean borrowed;
     private String viTri;
 
+    // ✅ Constructor mặc định (bắt buộc cần có cho Spring + DB)
     public Book() {}
 
+    // ✅ Constructor đầy đủ
     public Book(String id, String title, String author, String viTri) {
-        this.id = id;                     // Đổi tên biến
+        this.id = id;
         this.title = title;
         this.author = author;
         this.viTri = viTri;
-        this.borrowed = false;
+        this.borrowed = false;  // Mặc định khi thêm sách là chưa mượn
     }
 
-    // Getter và Setter cho id
+    // Getters và Setters
     public String getId() { return id; }
     public void setId(String id) { this.id = id; }
 
@@ -33,7 +35,19 @@ public class Book {
     public String getViTri() { return viTri; }
     public void setViTri(String viTri) { this.viTri = viTri; }
 
+    // ✅ Thao tác mượn sách
     public void muonSach() {
         this.borrowed = true;
+    }
+
+    // ✅ Thao tác trả sách
+    public void traSach() {
+        this.borrowed = false;
+    }
+
+    // ✅ In ra để debug/log dễ dàng
+    @Override
+    public String toString() {
+        return "[" + id + "] " + title + " - " + author + " (" + viTri + ") - " + (borrowed ? "Đã mượn" : "Có sẵn");
     }
 }

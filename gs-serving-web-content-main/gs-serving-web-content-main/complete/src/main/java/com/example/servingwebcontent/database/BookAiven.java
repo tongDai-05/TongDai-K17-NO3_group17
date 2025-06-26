@@ -3,9 +3,10 @@ package com.example.servingwebcontent.database;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.stereotype.Component;
 
 import com.example.servingwebcontent.Book;
-
+@Component
 public class BookAiven {
 
     public List<Book> getAllBooks() {

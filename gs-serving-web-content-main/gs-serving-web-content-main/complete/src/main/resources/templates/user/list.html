@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách Người Dùng</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f8f9fa; }
+        .card { border-radius: 15px; }
+    </style>
+</head>
+<body>
+<div class="container py-5">
+
+    <!-- Tiêu đề và về trang chủ -->
+    <div class="d-flex justify-content-between mb-4">
+        <h2 class="text-primary">📋 Danh sách Người Dùng</h2>
+        <a href="/" class="btn btn-outline-primary">🏠 Trang chủ</a>
+    </div>
+
+    <!-- Tìm kiếm -->
+    <form method="get" action="/user" class="mb-4">
+        <div class="input-group">
+            <input type="text" name="keyword" class="form-control" placeholder="🔍 Tìm theo tên hoặc địa chỉ..." th:value="${param.keyword}">
+            <button class="btn btn-primary" type="submit">Tìm kiếm</button>
+        </div>
+    </form>
+
+    <!-- Nút thêm và làm mới -->
+    <div class="card p-4 shadow mb-4">
+        <div class="d-flex gap-2">
+            <a href="/user/add" class="btn btn-success w-100">➕ Thêm người dùng</a>
+            <a href="/user" class="btn btn-secondary w-100">🔄 Làm mới</a>
+        </div>
+    </div>
+
+    <!-- Bảng người dùng -->
+    <div class="card shadow">
+        <table class="table table-hover mb-0">
+            <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Họ tên</th>
+                <th>Địa chỉ</th>
+                <th class="text-center">Hành động</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.userID}"></td>
+                <td th:text="${user.userName}"></td>
+                <td th:text="${user.address}"></td>
+                <td class="text-center">
+                    <a th:href="@{/user/edit/{id}(id=${user.userID})}" class="btn btn-sm btn-warning me-2">✏️</a>
+                    <a th:href="@{/user/delete/{id}(id=${user.userID})}" 
+                       class="btn btn-sm btn-danger" 
+                       onclick="return confirm('Bạn có chắc muốn xóa người dùng này?');">🗑️</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+</body>
+</html>

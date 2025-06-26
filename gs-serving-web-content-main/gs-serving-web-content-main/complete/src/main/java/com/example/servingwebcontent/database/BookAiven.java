@@ -7,7 +7,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
 @Component
 public class BookAiven {
 
@@ -79,7 +78,60 @@ public class BookAiven {
         return books;
     }
 
-    // ✅ Hàm hỗ trợ ánh xạ ResultSet → Book để tránh lặp code
+    // ✅ Tìm sách theo ID (dùng cho form chỉnh sửa)
+    public Book findBookById(String id) {
+        String sql = "SELECT * FROM books WHERE bookID = ?";
+        try (Connection conn = getConnection();
+             PreparedStatement pst = conn.prepareStatement(sql)) {
+
+            pst.setString(1, id);
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+                return mapResultSetToBook(rs);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    // ✅ Cập nhật thông tin sách
+    public void updateBook(Book book) {
+        String sql = "UPDATE books SET title = ?, author = ?, viTri = ? WHERE bookID = ?";
+
+        try (Connection conn = getConnection();
+             PreparedStatement pst = conn.prepareStatement(sql)) {
+
+            pst.setString(1, book.getTitle());
+            pst.setString(2, book.getAuthor());
+            pst.setString(3, book.getViTri());
+            pst.setString(4, book.getId());
+
+            pst.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    // ✅ Xóa sách theo ID
+    public void deleteBook(String id) {
+        String sql = "DELETE FROM books WHERE bookID = ?";
+
+        try (Connection conn = getConnection();
+             PreparedStatement pst = conn.prepareStatement(sql)) {
+
+            pst.setString(1, id);
+            pst.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    // ✅ Hàm hỗ trợ ánh xạ dữ liệu từ ResultSet sang Book
     private Book mapResultSetToBook(ResultSet rs) throws SQLException {
         Book book = new Book();
         book.setId(rs.getString("bookID"));

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Chỉnh sửa Người Dùng</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f8f9fa; }
+        .card { border-radius: 15px; }
+    </style>
+</head>
+<body>
+<div class="container py-5">
+    <h2 class="mb-4 text-warning text-center">✏️ Chỉnh sửa Người Dùng</h2>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form th:action="@{/user/edit/{id}(id=${user.userID})}" th:object="${user}" method="post" class="card p-4 shadow">
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Mã người dùng:</label>
+                    <input type="text" th:field="*{userID}" class="form-control" readonly>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Tên người dùng:</label>
+                    <input type="text" th:field="*{userName}" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Địa chỉ:</label>
+                    <input type="text" th:field="*{address}" class="form-control" required>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-success px-4">💾 Cập nhật</button>
+                    <a href="/user" class="btn btn-secondary px-4">❌ Hủy</a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

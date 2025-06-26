@@ -1,48 +1,69 @@
 package com.example.servingwebcontent;
 
-import com.example.servingwebcontent.database.InsertToAiven;
+import com.example.servingwebcontent.database.UserAiven;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequestMapping("/user")
 public class UserController {
 
-    @GetMapping("/list")
+    private final UserAiven userAiven;
+
+    @Autowired
+    public UserController(UserAiven userAiven) {
+        this.userAiven = userAiven;
+    }
+
+    // ✅ Hiển thị danh sách người dùng
+    @GetMapping
     public String listUsers(Model model) {
-        ArrayList<User> users = new ArrayList<>();
-
-        User u1 = new User();
-        u1.setUserName("Nguyen Van A");
-        u1.setAddress("Hanoi");
-        u1.setUserID("u1");
-
-        User u2 = new User();
-        u2.setUserName("Tran Thi B");
-        u2.setAddress("HCM");
-        u2.setUserID("u2");
-
-        users.add(u1);
-        users.add(u2);
-
+        List<User> users = userAiven.getAllUsers();
         model.addAttribute("users", users);
-        return "userlist";
+        return "user/list"; // templates/user/list.html
     }
 
+    // ✅ Hiển thị form thêm người dùng
     @GetMapping("/add")
-    public String showAddUserForm(Model model) {
+    public String showAddForm(Model model) {
         model.addAttribute("user", new User());
-        return "adduser";
+        return "user/add"; // templates/user/add.html
     }
 
+    // ✅ Xử lý thêm người dùng
     @PostMapping("/add")
-    public String addUser(@ModelAttribute User user, Model model) {
-        InsertToAiven db = new InsertToAiven();
-        db.insertToAivenDb(user);
-        model.addAttribute("message", "Đã thêm người dùng thành công!");
-        return "redirect:/user/list";
+    public String addUser(@ModelAttribute User user) {
+        userAiven.insertUser(user);
+        return "redirect:/user";
+    }
+
+    // ✅ Hiển thị form chỉnh sửa người dùng
+    @GetMapping("/edit/{id}")
+    public String showEditForm(@PathVariable("id") String userID, Model model) {
+        User user = userAiven.findUserById(userID);
+        if (user == null) {
+            return "redirect:/user";
+        }
+        model.addAttribute("user", user);
+        return "user/edit"; // templates/user/edit.html
+    }
+
+    // ✅ Xử lý cập nhật người dùng
+    @PostMapping("/edit/{id}")
+    public String updateUser(@PathVariable("id") String userID, @ModelAttribute User user) {
+        user.setUserID(userID); // Giữ nguyên ID
+        userAiven.updateUser(user);
+        return "redirect:/user";
+    }
+
+    // ✅ Xóa người dùng
+    @GetMapping("/delete/{id}")
+    public String deleteUser(@PathVariable("id") String userID) {
+        userAiven.deleteUser(userID);
+        return "redirect:/user";
     }
 }

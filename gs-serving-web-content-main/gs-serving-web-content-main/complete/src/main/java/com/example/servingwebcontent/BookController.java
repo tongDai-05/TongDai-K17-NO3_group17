@@ -65,5 +65,4 @@ public class BookController {
         return "redirect:/greeting";
     }
 
-  
 }

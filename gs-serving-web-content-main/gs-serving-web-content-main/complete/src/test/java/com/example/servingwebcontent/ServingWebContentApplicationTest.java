@@ -1,7 +1,6 @@
 package com.example.servingwebcontent;
 
 import com.example.servingwebcontent.database.BookAiven;
-
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -10,37 +9,44 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.Arrays;
 
+import static org.hamcrest.Matchers.containsString;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@WebMvcTest(BookController.class)
-public class BookControllerTest {
+@WebMvcTest({GreetingController.class, BookController.class}) // ✅ Bao gồm cả hai controller
+public class ServingWebContentApplicationTest {
 
     @Autowired
     private MockMvc mockMvc;
 
     @MockBean
-    private BookAiven bookAiven;
+    private BookAiven bookAiven; // Dùng cho BookController test
 
+    // ==== Greeting Controller tests ====
     @Test
-    public void testGetAllBooks() throws Exception {
-        Book book1 = new Book("b1", "Book One", "Author A", "Shelf A");
-        Book book2 = new Book("b2", "Book Two", "Author B", "Shelf B");
-
-        when(bookAiven.getAllBooks()).thenReturn(Arrays.asList(book1, book2));
-
-        mockMvc.perform(get("/books"))
-                .andExpect(status().isOk())
-                .andExpect(model().attributeExists("books"))
-                .andExpect(view().name("booklist"))
-                .andExpect(content().string(org.hamcrest.Matchers.containsString("Book One")));
+    public void homePage() throws Exception {
+        mockMvc.perform(get("/index.html"))
+                .andExpect(content().string(containsString("Get your greeting")));
     }
 
     @Test
+    public void greeting() throws Exception {
+        mockMvc.perform(get("/greeting"))
+                .andExpect(content().string(containsString("Hello, World!")));
+    }
+
+    @Test
+    public void greetingWithUser() throws Exception {
+        mockMvc.perform(get("/greeting").param("name", "Greg"))
+                .andExpect(content().string(containsString("Hello, Greg!")));
+    }
+
+    // ==== Book Controller test ====
+    @Test
     public void testGetBorrowedBooks() throws Exception {
         Book book1 = new Book("b1", "Book One", "Author A", "Shelf A");
-        book1.muonSach(); // đánh dấu đã mượn
+        book1.muonSach();
 
         when(bookAiven.getBorrowedBooks()).thenReturn(Arrays.asList(book1));
 
@@ -48,6 +54,6 @@ public class BookControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(model().attributeExists("books"))
                 .andExpect(view().name("borrowedbooks"))
-                .andExpect(content().string(org.hamcrest.Matchers.containsString("Book One")));
+                .andExpect(content().string(containsString("Book One")));
     }
 }

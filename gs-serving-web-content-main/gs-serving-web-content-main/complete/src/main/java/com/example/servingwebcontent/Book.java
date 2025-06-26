@@ -1,53 +1,73 @@
 package com.example.servingwebcontent;
 
 public class Book {
-    private String id;         
+    private String id;
     private String title;
     private String author;
-    private boolean borrowed;
     private String viTri;
+    private boolean borrowed;
 
-    // ✅ Constructor mặc định (bắt buộc cần có cho Spring + DB)
-    public Book() {}
+    // ✅ Constructor mặc định
+    public Book() {
+    }
 
-    // ✅ Constructor đầy đủ
+    // ✅ Constructor có tham số
     public Book(String id, String title, String author, String viTri) {
         this.id = id;
         this.title = title;
         this.author = author;
         this.viTri = viTri;
-        this.borrowed = false;  // Mặc định khi thêm sách là chưa mượn
+        this.borrowed = false; // mặc định chưa mượn
     }
 
-    // Getters và Setters
-    public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
+    // ✅ Getter và Setter
+    public String getId() {
+        return id;
+    }
 
-    public String getTitle() { return title; }
-    public void setTitle(String title) { this.title = title; }
+    public void setId(String id) {
+        this.id = id;
+    }
 
-    public String getAuthor() { return author; }
-    public void setAuthor(String author) { this.author = author; }
+    public String getTitle() {
+        return title;
+    }
 
-    public boolean isBorrowed() { return borrowed; }
-    public void setBorrowed(boolean borrowed) { this.borrowed = borrowed; }
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-    public String getViTri() { return viTri; }
-    public void setViTri(String viTri) { this.viTri = viTri; }
+    public String getAuthor() {
+        return author;
+    }
 
-    // ✅ Thao tác mượn sách
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getViTri() {
+        return viTri;
+    }
+
+    public void setViTri(String viTri) {
+        this.viTri = viTri;
+    }
+
+    public boolean isBorrowed() {
+        return borrowed;
+    }
+
+    public void setBorrowed(boolean borrowed) {
+        this.borrowed = borrowed;
+    }
+
+    // ✅ Gọi khi mượn sách
     public void muonSach() {
         this.borrowed = true;
     }
 
-    // ✅ Thao tác trả sách
+    // ✅ Gọi khi trả sách
     public void traSach() {
         this.borrowed = false;
-    }
-
-    // ✅ In ra để debug/log dễ dàng
-    @Override
-    public String toString() {
-        return "[" + id + "] " + title + " - " + author + " (" + viTri + ") - " + (borrowed ? "Đã mượn" : "Có sẵn");
     }
 }

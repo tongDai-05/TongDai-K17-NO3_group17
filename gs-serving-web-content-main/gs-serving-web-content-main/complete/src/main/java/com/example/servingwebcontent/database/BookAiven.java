@@ -20,7 +20,7 @@ public class BookAiven {
 
     public List<Book> getAllBooks() {
         List<Book> books = new ArrayList<>();
-        String sql = "SELECT * FROM books";
+        String sql = "SELECT * FROM book"; // ✅ đã sửa
 
         try (Connection conn = getConnection();
              Statement stmt = conn.createStatement();
@@ -38,7 +38,7 @@ public class BookAiven {
 
     public List<Book> getBorrowedBooks() {
         List<Book> borrowedBooks = new ArrayList<>();
-        String sql = "SELECT * FROM books WHERE borrowed = TRUE";
+        String sql = "SELECT * FROM book WHERE borrowed = TRUE"; // ✅ đã sửa
 
         try (Connection conn = getConnection();
              Statement stmt = conn.createStatement();
@@ -57,7 +57,7 @@ public class BookAiven {
 
     public List<Book> searchBooks(String keyword) {
         List<Book> books = new ArrayList<>();
-        String sql = "SELECT * FROM books WHERE title LIKE ? OR author LIKE ?";
+        String sql = "SELECT * FROM book WHERE bookName LIKE ? OR bookAuthor LIKE ?"; // ✅ đã sửa
 
         try (Connection conn = getConnection();
              PreparedStatement pst = conn.prepareStatement(sql)) {
@@ -78,9 +78,8 @@ public class BookAiven {
         return books;
     }
 
-    // ✅ Tìm sách theo ID (dùng cho form chỉnh sửa)
     public Book findBookById(String id) {
-        String sql = "SELECT * FROM books WHERE bookID = ?";
+        String sql = "SELECT * FROM book WHERE bookID = ?"; // ✅ đã sửa
         try (Connection conn = getConnection();
              PreparedStatement pst = conn.prepareStatement(sql)) {
 
@@ -97,9 +96,8 @@ public class BookAiven {
         return null;
     }
 
-    // ✅ Cập nhật thông tin sách
     public void updateBook(Book book) {
-        String sql = "UPDATE books SET title = ?, author = ?, viTri = ? WHERE bookID = ?";
+        String sql = "UPDATE book SET bookName = ?, bookAuthor = ?, viTri = ? WHERE bookID = ?"; // ✅ đã sửa
 
         try (Connection conn = getConnection();
              PreparedStatement pst = conn.prepareStatement(sql)) {
@@ -116,9 +114,8 @@ public class BookAiven {
         }
     }
 
-    // ✅ Xóa sách theo ID
     public void deleteBook(String id) {
-        String sql = "DELETE FROM books WHERE bookID = ?";
+        String sql = "DELETE FROM book WHERE bookID = ?"; // ✅ đã sửa
 
         try (Connection conn = getConnection();
              PreparedStatement pst = conn.prepareStatement(sql)) {
@@ -131,14 +128,48 @@ public class BookAiven {
         }
     }
 
-    // ✅ Hàm hỗ trợ ánh xạ dữ liệu từ ResultSet sang Book
     private Book mapResultSetToBook(ResultSet rs) throws SQLException {
         Book book = new Book();
         book.setId(rs.getString("bookID"));
-        book.setTitle(rs.getString("title"));
-        book.setAuthor(rs.getString("author"));
+        book.setTitle(rs.getString("bookName"));     // ✅ dùng đúng tên cột SQL
+        book.setAuthor(rs.getString("bookAuthor"));  // ✅
         book.setBorrowed(rs.getBoolean("borrowed"));
         book.setViTri(rs.getString("viTri"));
         return book;
     }
+    public List<Book> filterBooks(String author, String viTri) {
+    List<Book> books = new ArrayList<>();
+    StringBuilder sql = new StringBuilder("SELECT * FROM book WHERE 1=1");
+
+    if (author != null && !author.isEmpty()) {
+        sql.append(" AND bookAuthor LIKE ?");
+    }
+
+    if (viTri != null && !viTri.isEmpty()) {
+        sql.append(" AND viTri LIKE ?");
+    }
+
+    try (Connection conn = getConnection();
+         PreparedStatement pst = conn.prepareStatement(sql.toString())) {
+
+        int index = 1;
+        if (author != null && !author.isEmpty()) {
+            pst.setString(index++, "%" + author + "%");
+        }
+        if (viTri != null && !viTri.isEmpty()) {
+            pst.setString(index, "%" + viTri + "%");
+        }
+
+        ResultSet rs = pst.executeQuery();
+        while (rs.next()) {
+            books.add(mapResultSetToBook(rs));
+        }
+
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+
+    return books;
+}
+
 }

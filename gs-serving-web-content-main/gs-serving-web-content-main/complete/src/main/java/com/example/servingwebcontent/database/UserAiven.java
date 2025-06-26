@@ -21,7 +21,7 @@ public class UserAiven {
     // ✅ Lấy danh sách tất cả người dùng
     public List<User> getAllUsers() {
         List<User> users = new ArrayList<>();
-        String sql = "SELECT * FROM users";
+        String sql = "SELECT * FROM user";
 
         try (Connection conn = getConnection();
              Statement stmt = conn.createStatement();
@@ -39,7 +39,7 @@ public class UserAiven {
 
     // ✅ Tìm người dùng theo ID
     public User findUserById(String id) {
-        String sql = "SELECT * FROM users WHERE userID = ?";
+        String sql = "SELECT * FROM user WHERE id = ?";
         try (Connection conn = getConnection();
              PreparedStatement pst = conn.prepareStatement(sql)) {
 
@@ -58,7 +58,7 @@ public class UserAiven {
 
     // ✅ Thêm người dùng mới
     public void insertUser(User user) {
-        String sql = "INSERT INTO users (userID, userName, address) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO user (id, name, address) VALUES (?, ?, ?)";
         try (Connection conn = getConnection();
              PreparedStatement pst = conn.prepareStatement(sql)) {
 
@@ -75,7 +75,7 @@ public class UserAiven {
 
     // ✅ Cập nhật người dùng
     public void updateUser(User user) {
-        String sql = "UPDATE users SET userName = ?, address = ? WHERE userID = ?";
+        String sql = "UPDATE user SET name = ?, address = ? WHERE id = ?";
         try (Connection conn = getConnection();
              PreparedStatement pst = conn.prepareStatement(sql)) {
 
@@ -92,7 +92,7 @@ public class UserAiven {
 
     // ✅ Xóa người dùng
     public void deleteUser(String userID) {
-        String sql = "DELETE FROM users WHERE userID = ?";
+        String sql = "DELETE FROM user WHERE id = ?";
         try (Connection conn = getConnection();
              PreparedStatement pst = conn.prepareStatement(sql)) {
 
@@ -104,11 +104,11 @@ public class UserAiven {
         }
     }
 
-    // ✅ Hàm ánh xạ từ ResultSet sang đối tượng User
+    // ✅ Ánh xạ từ ResultSet sang User
     private User mapResultSetToUser(ResultSet rs) throws SQLException {
         User user = new User();
-        user.setUserID(rs.getString("userID"));
-        user.setUserName(rs.getString("userName"));
+        user.setUserID(rs.getString("id"));
+        user.setUserName(rs.getString("name"));
         user.setAddress(rs.getString("address"));
         return user;
     }

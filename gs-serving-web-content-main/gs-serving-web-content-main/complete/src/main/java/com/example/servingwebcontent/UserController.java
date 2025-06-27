@@ -33,6 +33,22 @@ public class UserController {
         model.addAttribute("user", new User());
         return "user/add"; // templates/user/add.html
     }
+    //co thu test
+
+    @GetMapping("user/add")
+    public String addFormUser() {
+       
+        return "user/add1"; // templates/user/add.html
+    }
+    
+    @GetMapping("/user/getAdd")
+    public String addUserForm(@ModelAttribute User user) {
+        userAiven.insertUser(user);
+        return "user/add1";
+    }
+
+    //het test co Thu
+
 
     // ✅ Xử lý thêm người dùng
     @PostMapping("/add")

@@ -1,4 +1,4 @@
-Group 1 Project: Xây dựng ứng dụng quản lý thư viện
+Group 17 Project: Xây dựng ứng dụng quản lý thư viện
 
 Member
 

@@ -1,8 +1,10 @@
-Group 17 Project: Xây dựng ứng dụng quản lý thư viện
-
-Member
-
-Introduction
+# Group 17 Project: Xây dựng ứng dụng quản lý thư viện
+-------------------
+## Thành viên nhóm:
+* Tống Sỹ Đại | MSV: 23010037
+* Phạm Thị Phương Anh| MSV: 23010706
+* Nguyễn Vũ Phụng Anh | MSV: 22010994
+-------------------
 
 TongDai
 Xây dựng ứng dụng quản lý thư viện với các chức năng cơ bản: quản lý người dùng (độc giả), sách, và hoạt động mượn-trả sách. Technolog Object-Oriented Programming (OOP)

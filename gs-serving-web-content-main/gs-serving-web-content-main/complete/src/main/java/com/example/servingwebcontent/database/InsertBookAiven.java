@@ -13,7 +13,7 @@ public class InsertBookAiven {
                 "avnadmin", "AVNS_4nU1y6avZRmSrZ0OhWl")) {
 
             //  Lưu ý thêm cột viTri nếu bảng books có cột này
-            String query = "INSERT INTO books(bookID, bookName, bookAuthor, borrowed, viTri) VALUES (?, ?, ?, ?, ?)";
+             String query = "INSERT INTO book(bookID, bookName, bookAuthor, borrowed, viTri) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement pst = conn.prepareStatement(query);
             pst.setString(1, book.getId());          // sửa getBookID() → getId()
             pst.setString(2, book.getTitle());

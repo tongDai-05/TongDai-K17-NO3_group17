@@ -1,6 +1,6 @@
 package com.example.servingwebcontent.database;
 
-import com.example.servingwebcontent.User;
+import com.example.servingwebcontent.model.User;
 import org.springframework.stereotype.Component;
 
 import java.sql.*;

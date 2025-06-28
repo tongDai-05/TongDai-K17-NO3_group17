@@ -4,6 +4,8 @@ import com.example.servingwebcontent.database.BookAiven;
 import com.example.servingwebcontent.database.InsertBookAiven;
 import com.example.servingwebcontent.database.BorrowBookAiven;
 import com.example.servingwebcontent.database.ReturnBookAiven;
+import com.example.servingwebcontent.model.Book;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;

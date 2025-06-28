@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.util.Random;
 
-import com.example.servingwebcontent.User;
+import com.example.servingwebcontent.model.User;
 
 public class InsertToAiven {
 

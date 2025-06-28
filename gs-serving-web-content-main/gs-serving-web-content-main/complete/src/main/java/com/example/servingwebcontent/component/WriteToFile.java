@@ -1,8 +1,10 @@
-package com.example.servingwebcontent;
+package com.example.servingwebcontent.component;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+
+import com.example.servingwebcontent.model.User;
 
 public class WriteToFile {
     public void ToFile(ArrayList<User> u) {

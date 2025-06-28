@@ -1,6 +1,8 @@
-package com.example.servingwebcontent;
+package com.example.servingwebcontent.component;
 
 import java.util.ArrayList;
+
+import com.example.servingwebcontent.model.User;
 
 public class AddUserToList {
         public  ArrayList<User> addUserToList(User u){

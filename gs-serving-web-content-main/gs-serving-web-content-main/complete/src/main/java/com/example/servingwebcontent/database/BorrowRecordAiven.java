@@ -1,6 +1,6 @@
 package com.example.servingwebcontent.database;
 
-import com.example.servingwebcontent.BorrowRecord;
+import com.example.servingwebcontent.model.BorrowRecord;
 import org.springframework.stereotype.Component;
 
 import java.sql.*;

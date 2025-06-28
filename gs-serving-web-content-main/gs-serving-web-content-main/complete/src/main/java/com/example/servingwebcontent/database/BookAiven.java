@@ -1,6 +1,6 @@
 package com.example.servingwebcontent.database;
 
-import com.example.servingwebcontent.Book;
+import com.example.servingwebcontent.model.Book;
 import org.springframework.stereotype.Component;
 
 import java.sql.*;

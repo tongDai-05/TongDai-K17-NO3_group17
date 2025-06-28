@@ -1,8 +1,8 @@
 package com.example.servingwebcontent.database;
 
-import com.example.servingwebcontent.Book;
-import com.example.servingwebcontent.User;
-import com.example.servingwebcontent.LoanRecord;
+import com.example.servingwebcontent.model.Book;
+import com.example.servingwebcontent.model.User;
+import com.example.servingwebcontent.model.LoanRecord;
 
 import java.sql.*;
 import java.time.LocalDate;

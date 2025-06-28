@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
-import com.example.servingwebcontent.Book;
+import com.example.servingwebcontent.model.Book;
 
 public class InsertBookAiven {
     public void insertBook(Book book) {

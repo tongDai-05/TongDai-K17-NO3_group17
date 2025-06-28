@@ -1,6 +1,9 @@
 package com.example.servingwebcontent;
 
+import com.example.servingwebcontent.controller.BookController;
 import com.example.servingwebcontent.database.BookAiven;
+import com.example.servingwebcontent.model.Book;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;

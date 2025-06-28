@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.servingwebcontent.database.BookAiven;
+import com.example.servingwebcontent.model.Book;
 @Controller
 public class loanRecordController {
      private final BookAiven bookData = new BookAiven();

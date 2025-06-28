@@ -1,4 +1,4 @@
-package com.example.servingwebcontent;
+package com.example.servingwebcontent.model;
 import java.time.LocalDate;
 public class LoanRecord {
     private Book book; //ttin sach muon

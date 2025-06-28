@@ -1,4 +1,4 @@
-package com.example.servingwebcontent;
+package com.example.servingwebcontent.controller;
 
 import com.example.servingwebcontent.database.BorrowRecordAiven;
 import org.springframework.beans.factory.annotation.Autowired;

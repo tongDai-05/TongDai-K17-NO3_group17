@@ -20,7 +20,7 @@ public class User {
         System.out.println("[" + userID + "] " + userName + " - " + address);
     }
 
-    // 👇 Thêm dòng này để tránh lỗi ở LoginController
+    
     public void printUserName() {
         System.out.println("Tên người dùng: " + userName);
     }

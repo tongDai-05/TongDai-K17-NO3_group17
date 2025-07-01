@@ -1,74 +1,39 @@
-Group 1 Project: Xây dựng ứng dụng quản lý thư viện
+# Group 17 Project: 📚Xây dựng hệ thống quản lý thư viện
+---------------
+## 👥 Thành Viên:
+* Tống Sỹ Đại | MSV: 	23010037
+* Phạm Thị Phương Anh | MSV: 23010706
+* Nguyễn Vũ Phụng Anh | MSV: 22010994
+---------------
+## 📌 Giới thiệu dự án:
+Trong thời đại số hóa hiện nay, việc quản lý thư viện một cách hiệu quả trở nên vô cùng quan trọng để đáp ứng nhu cầu đọc và nghiên cứu ngày càng cao của cộng đồng. Các phương pháp quản lý thủ công truyền thống thường gặp phải nhiều hạn chế như mất thời gian, dễ xảy ra sai sót, khó khăn trong việc theo dõi thông tin sách, độc giả, và hoạt động mượn trả. Điều này gây ảnh hưởng không nhỏ đến chất lượng dịch vụ và trải nghiệm của người dùng.
 
-Member
+Để giải quyết những thách thức trên, Hệ thống Quản lý Thư viện ra đời như một giải pháp công nghệ tối ưu. Đề tài này tập trung vào việc nghiên cứu, thiết kế và triển khai một hệ thống tự động hóa toàn diện, nhằm cải thiện đáng kể hiệu quả hoạt động của thư viện.
+## 📖 Chức năng chính:
+* **Quản lý sách:** Quản lý thông tin của sách như
+* **Quản lý người dùng:** Quản lý thông tin của độc giả như
+* **Quản lý phiếu mượn sách:** Quản lý thông tin của phiếu mượn
 
-Introduction
-
-TongDai
-Xây dựng ứng dụng quản lý thư viện với các chức năng cơ bản: quản lý người dùng (độc giả), sách, và hoạt động mượn-trả sách. Technolog Object-Oriented Programming (OOP)
-
-Xây dựng ứng dụng quản lý thư viện với các chức năng cơ bản: quản lý người dùng (độc giả), sách, và hoạt động mượn-trả sách.
-Technolog Object-Oriented Programming (OOP)
-
-Structural Diagram (Sơ đồ cấu trúc)
-
-User (Độc giả thư viện)
-
-Book (Sách)
-
-UserBook (Mượn sách)
-
- TongDai
-Behavioural Diagram (Sơ đồ chức năng / thuật toán) Người dùng có thể đăng ký tài khoản.
-
-Behavioural Diagram (Sơ đồ chức năng / thuật toán)
-Người dùng có thể đăng ký tài khoản.
-
-Người dùng có thể tìm kiếm sách.
-
-Người dùng có thể mượn và trả sách.
-
-Hệ thống ghi lại lịch sử mượn sách.
-
- TongDai
-Stage 1 Định nghĩa các class cơ bản:
-
-User (Thông tin độc giả) Book (Thông tin sách) UserBook (Thông tin mượn sách) Stage 2 Bổ sung các hành vi (method) cơ bản cho các class: User Book UserBook Stage 3 Nâng cấp ứng dụng:
-
-Stage 1
-Định nghĩa các class cơ bản:
-
-User (Thông tin độc giả)
-Book (Thông tin sách)
-UserBook (Thông tin mượn sách)
-Stage 2
-Bổ sung các hành vi (method) cơ bản cho các class:
-User
-Book
-UserBook
-Stage 3
-Nâng cấp ứng dụng:
- 
-
-Thêm tính năng xử lý khi quá hạn trả sách (ví dụ tính phí phạt).
-
-Thêm tìm kiếm sách theo tên tác giả, tiêu đề.
-
-Quản lý số lượng sách thay vì chỉ trạng thái có/không.
-
-Phát triển giao diện (Console hoặc GUI nhỏ).
-
-link repo :https://github.com/tongDai-05/TongDai-K17-NO3_group17
-
- TongDai
-# sơ đồ
-
-## Sơ dồ hành vi
+---------------
+## 💻 Công nghệ sử dụng
+* **Ngôn ngữ:** Java.
+* **Cơ sở dữ liệu:** MySQL.
+* **Framework:** Spring Boot.
+---------------
+## 🧩 Sơ Đồ
+### Sơ đồ hành vi
 <img src="img/sodo1.jpg">
-## sơ đồ class diagam
+
+### Sơ đồ class diagam
 <img src="img/classdiagram.jpg">
 
-## sơ đồ mượn trả sách
+### Sơ đồ mượn trả sách
 <img src="img/luudomuonsach1.jpg">
+
+---------------
+
+## Demo
+### Giao diện hệ thống
+<img src="img/daodien.jpg">
 
  

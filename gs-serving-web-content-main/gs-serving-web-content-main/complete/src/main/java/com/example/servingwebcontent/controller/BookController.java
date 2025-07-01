@@ -1,93 +1,84 @@
 package com.example.servingwebcontent.controller;
 
 import com.example.servingwebcontent.database.BookAiven;
-import com.example.servingwebcontent.database.InsertBookAiven;
-import com.example.servingwebcontent.database.BorrowBookAiven;
-import com.example.servingwebcontent.database.ReturnBookAiven;
+import com.example.servingwebcontent.database.BorrowRecordAiven;
 import com.example.servingwebcontent.model.Book;
-
+import com.example.servingwebcontent.model.BorrowRecord;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDate;
 import java.util.List;
+import java.util.UUID;
 
 @Controller
+@RequestMapping("/book")
 public class BookController {
 
     private final BookAiven bookAiven;
+    private final BorrowRecordAiven borrowRecordAiven;
 
-    public BookController(BookAiven bookAiven) {
+    public BookController(BookAiven bookAiven, BorrowRecordAiven borrowRecordAiven) {
         this.bookAiven = bookAiven;
+        this.borrowRecordAiven = borrowRecordAiven;
     }
 
-    @GetMapping("/book")
-    public String getBooks(@RequestParam(value = "keyword", required = false) String keyword, Model model) {
-        List<Book> books = (keyword != null && !keyword.isEmpty())
-                ? bookAiven.searchBooks(keyword)
-                : bookAiven.getAllBooks();
+    @GetMapping
+    public String listBooks(@RequestParam(value = "keyword", required = false) String keyword, Model model) {
+        List<Book> books = (keyword != null && !keyword.isEmpty()) ? 
+                bookAiven.searchBooks(keyword) : bookAiven.getAllBooks();
         model.addAttribute("books", books);
         return "book/list";
     }
 
-    @GetMapping("/book/filter")
-    public String filterBooks(@RequestParam(required = false) String author,
-                              @RequestParam(required = false) String viTri,
-                              Model model) {
-        List<Book> books = bookAiven.filterBooks(author, viTri);
-        model.addAttribute("books", books);
-        return "book/list";
-    }
-
-    @GetMapping("/book/add")
+    @GetMapping("/add")
     public String showAddForm(Model model) {
         model.addAttribute("book", new Book());
         return "book/add";
     }
 
-    @PostMapping("/book/add")
-    public String addBook(@ModelAttribute("book") Book book) {
-        InsertBookAiven iba = new InsertBookAiven();
-        iba.insertBook(book);
+    @PostMapping("/add")
+    public String addBook(@ModelAttribute Book book) {
+        // Không tự sinh UUID nữa, ID do người dùng nhập từ form
+        book.setBorrowed(false);  // Khi thêm mới mặc định chưa mượn
+        bookAiven.insertBook(book);
         return "redirect:/book";
     }
 
-    @GetMapping("/book/edit/{id}")
-    public String showEditForm(@PathVariable String id, Model model) {
-        Book book = bookAiven.findBookById(id);
-        model.addAttribute("book", book);
-        return "book/edit";
+    @GetMapping("/borrow/{bookId}")
+    public String showBorrowForm(@PathVariable String bookId, Model model) {
+        Book book = bookAiven.findBookById(bookId);
+        if (book == null || book.isBorrowed()) {
+            return "redirect:/book";
+        }
+        BorrowRecord record = new BorrowRecord();
+        record.setBookId(bookId);
+        record.setBorrowDate(LocalDate.now());
+        record.setDueDate(LocalDate.now().plusDays(14));
+        model.addAttribute("borrowRecord", record);
+        return "book/borrow";
     }
 
-    @PostMapping("/book/edit")
-    public String updateBook(@ModelAttribute("book") Book book) {
-        bookAiven.updateBook(book);
+    @PostMapping("/borrow")
+    public String borrowBook(@ModelAttribute BorrowRecord borrowRecord) {
+        borrowRecord.setRecordId(UUID.randomUUID().toString());
+        borrowRecordAiven.insert(borrowRecord);
+        bookAiven.updateBorrowedStatus(borrowRecord.getBookId(), true);
         return "redirect:/book";
     }
 
-    @PostMapping("/book/delete")
+    @PostMapping("/return")
+    public String returnBook(@RequestParam String bookId) {
+        borrowRecordAiven.deleteByBookId(bookId);
+        bookAiven.updateBorrowedStatus(bookId, false);
+        return "redirect:/book";
+    }
+
+    @PostMapping("/delete")
     public String deleteBook(@RequestParam String id) {
+        borrowRecordAiven.deleteByBookId(id);
         bookAiven.deleteBook(id);
         return "redirect:/book";
-    }
-
-    @PostMapping("/borrowbook")
-    public String borrowBook(@RequestParam String bookId) {
-        System.out.println("📥 Mượn sách: " + bookId);
-        BorrowBookAiven bba = new BorrowBookAiven();
-        bba.borrowBook(bookId);
-        return "redirect:/book";
-    }
-
-    @PostMapping("/returnBook")
-    public String returnBook(@RequestParam String bookId) {
-        ReturnBookAiven rba = new ReturnBookAiven();
-        rba.returnBook(bookId);
-        return "redirect:/book";
-    }
-
-    @GetMapping("/borrowedbooks")
-    public String getBorrowedBooks(Model model) {
-        model.addAttribute("books", bookAiven.getBorrowedBooks());
-        return "book/borrowedbooks";
     }
 }

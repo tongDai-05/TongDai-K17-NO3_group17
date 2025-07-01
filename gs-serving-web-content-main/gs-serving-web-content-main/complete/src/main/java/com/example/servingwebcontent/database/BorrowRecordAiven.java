@@ -124,4 +124,16 @@ public class BorrowRecordAiven {
         }
         return br;
     }
+    // Thêm vào BorrowRecordAiven.java
+    public void deleteByBookId(String bookId) {
+        String sql = "DELETE FROM borrow_records WHERE bookId=?";
+        try (Connection conn = getConnection();
+         PreparedStatement pst = conn.prepareStatement(sql)) {
+        pst.setString(1, bookId);
+        pst.executeUpdate();
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+
 }

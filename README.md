@@ -24,8 +24,8 @@ Trong thời đại số hóa hiện nay, việc quản lý thư viện một c�
 ### Sơ đồ hành vi
 <img src="img/sodo1.jpg">
 
-### Sơ đồ class diagam
-<img src="img/classdiagram.jpg">
+### Sơ đồ diagram
+<img src="img/sơ đồ diagram .png">
 
 ### Sơ đồ mượn trả sách
 <img src="img/luudomuonsach1.jpg">

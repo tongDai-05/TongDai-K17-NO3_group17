@@ -68,6 +68,22 @@ public class BookController {
         return "redirect:/book";
     }
 
+    @GetMapping("/edit/{bookId}")
+public String showEditForm(@PathVariable String bookId, Model model) {
+    Book book = bookAiven.findBookById(bookId);
+    if (book == null) {
+        return "redirect:/book";
+    }
+    model.addAttribute("book", book);
+    return "book/edit"; // view: book/edit.html
+}
+
+    @PostMapping("/edit")
+public String editBook(@ModelAttribute Book book) {
+    bookAiven.updateBook(book);
+    return "redirect:/book";
+}
+
     @PostMapping("/return")
     public String returnBook(@RequestParam String bookId) {
         borrowRecordAiven.deleteByBookId(bookId);

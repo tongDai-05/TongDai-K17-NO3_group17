@@ -10,15 +10,23 @@ Trong thời đại số hóa hiện nay, việc quản lý thư viện một c�
 
 Để giải quyết những thách thức trên, Hệ thống Quản lý Thư viện ra đời như một giải pháp công nghệ tối ưu. Đề tài này tập trung vào việc nghiên cứu, thiết kế và triển khai một hệ thống tự động hóa toàn diện, nhằm cải thiện đáng kể hiệu quả hoạt động của thư viện.
 ## 📖 Chức năng chính:
-* **Quản lý sách:** Quản lý thông tin của sách như
-* **Quản lý người dùng:** Quản lý thông tin của độc giả như
-* **Quản lý phiếu mượn sách:** Quản lý thông tin của phiếu mượn
+* **Quản lý sách:**
+  - Quản lý thông tin của sách như tên, mã sách, vị trí và trạng thái của sách.
+  - Hỗ trợ: tìm kiếm sách và thêm, sửa, xóa thông tin sách.
+* **Quản lý người dùng:**
+  - Quản lý thông tin của độc giả như tên, id người dùng, địa chỉ.
+  - Hỗ trợ: thêm, sửa, xóa thông tin người dùng.
+* **Quản lý phiếu mượn sách:**
+  - Cập nhật thông tin của các phiếu mượn sách như ngày mượn, hạn trả và trạng thái đã trả hay chưa.
+  - Hỗ trợ: thêm, sửa ,xóa thông tin phiếu mượn.
 
 ---------------
 ## 💻 Công nghệ sử dụng
-* **Ngôn ngữ:** Java.
+* **Ngôn ngữ:** Java, HTML.
 * **Cơ sở dữ liệu:** MySQL.
 * **Framework:** Spring Boot.
+----------------
+
 ---------------
 ## 🧩 Sơ Đồ
 ### Sơ đồ hành vi
@@ -38,5 +46,31 @@ Trong thời đại số hóa hiện nay, việc quản lý thư viện một c�
 ## Demo
 ### Giao diện hệ thống
 <img src="img/daodien.jpg">
+
+### Giao diện quản lý sách
+<img src="img/dd_qls.png">
+
+**1. Thêm sách**
+<img src="img/add_b.png">
+**2. Chỉnh sửa thông tin sách**
+<img src="img/edit_b.png">
+**3. Mượn Sách**
+<img src="img/dd_nhap1.png">
+
+### Giao diện quản lý người dùng
+<img src="img/dd_qlu.png">
+
+**1. Thêm người dùng**
+<img src="img/add_u.png">
+**2. Chỉnh sửa thông tin người dùng**
+<img src="img/edit_u.png">
+
+### Giao diện quản lý phiếu mượn
+<img src="img/dd_qlp.png">
+
+**1. Tạo phiếu mượn mới**
+<img src="img/add_p.png">
+**2. Chỉnh sửa thông tin phiếu mượn**
+<img src="img/edit_p.png">
 
  

@@ -27,15 +27,17 @@ Trong thời đại số hóa hiện nay, việc quản lý thư viện một c�
 * **Framework:** Spring Boot.
 ----------------
 
----------------
-## 🧩 Sơ Đồ
-### Sơ đồ hành vi
-<img src="img/sodo1.jpg">
+## 🧩 UML
+### Sequence Diagram	
+**1. User**
+<img src="img/user.jpg">
+**2. Book**
+<img src="img/book.jpg">
 
 ### Diagram
 <img src="img/sơ đồ diagram .png">
 
-### Sơ đồ class Diagram
+### Class Diagram
 <img src="img/class_diagram.png">
 
 ### Sơ đồ thuật toán

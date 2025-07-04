@@ -41,6 +41,8 @@ Trong thời đại số hóa hiện nay, việc quản lý thư viện một c�
 <img src="img/pm.jpg">
 **4. Tìm kiếm sách**
 <img src="img/timkiem.jpg">
+**5. Mượn/Trả sách**
+<img src="img/muon_tra.jpg">
 
 ### Diagram
 <img src="img/sơ đồ diagram .png">

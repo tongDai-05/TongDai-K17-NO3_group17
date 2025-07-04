@@ -26,13 +26,21 @@ Trong thời đại số hóa hiện nay, việc quản lý thư viện một c�
 * **Cơ sở dữ liệu:** MySQL.
 * **Framework:** Spring Boot.
 ----------------
-
+## 🔗link
+- repo: https://github.com/tongDai-05/TongDai-K17-NO3_group17.git.
+- demo youtube:
+   
+----------------
 ## 🧩 UML
 ### Sequence Diagram	
 **1. User**
 <img src="img/user.jpg">
 **2. Book**
 <img src="img/book.jpg">
+**3. Phiếu mượn**
+<img src="img/pm.jpg">
+**4. Tìm kiếm sách**
+<img src="img/timkiem.jpg">
 
 ### Diagram
 <img src="img/sơ đồ diagram .png">
@@ -45,7 +53,7 @@ Trong thời đại số hóa hiện nay, việc quản lý thư viện một c�
 
 ---------------
 
-## Demo
+## 🌐Demo
 ### Giao diện hệ thống
 <img src="img/daodien.jpg">
 

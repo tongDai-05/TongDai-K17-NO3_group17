@@ -28,7 +28,7 @@ Trong thời đại số hóa hiện nay, việc quản lý thư viện một c�
 ----------------
 ## 🔗link
 - repo: https://github.com/tongDai-05/TongDai-K17-NO3_group17.git.
-- demo youtube:
+- demo youtube: https://youtu.be/0yEYkY3lU2Q?si=NBTLqDFRudUqbz5K
    
 ----------------
 ## 🧩 UML

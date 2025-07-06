@@ -9,7 +9,6 @@
 <body style="background-color: #f8f9fa; position: relative;">
 <div class="container py-5">
 
-    <!-- Quay về Trang chủ -->
     <a href="/" class="btn btn-secondary position-absolute top-0 end-0 m-3">🏠 Trang chủ</a>
 
     <h2 class="text-primary mb-4">📚 Danh sách Sách</h2>
@@ -49,10 +48,10 @@
                         <button type="submit" class="btn btn-sm btn-warning">Trả</button>
                     </form>
 
-                    <!-- Sửa sách -->
+                    >
                     <a th:href="@{'/book/edit/' + ${book.id}}" class="btn btn-sm btn-primary">✏️</a>
 
-                    <!-- Xóa sách -->
+                    
                     <form th:action="@{/book/delete}" method="post"
                           onsubmit="return confirm('Bạn có chắc chắn muốn xóa sách này không?')">
                         <input type="hidden" name="id" th:value="${book.id}" />

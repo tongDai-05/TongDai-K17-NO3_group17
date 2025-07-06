@@ -12,7 +12,6 @@ public class InsertBookAiven {
                 "jdbc:mysql://avnadmin:AVNS_4nU1y6avZRmSrZ0OhWl@mysql-cd52b85-raznopro2k5-c07e.c.aivencloud.com:22996/defaultdb?ssl-mode=REQUIRED",
                 "avnadmin", "AVNS_4nU1y6avZRmSrZ0OhWl")) {
 
-            //  Lưu ý thêm cột viTri nếu bảng books có cột này
              String query = "INSERT INTO book(bookID, bookName, bookAuthor, borrowed, viTri) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement pst = conn.prepareStatement(query);
             pst.setString(1, book.getId());          // sửa getBookID() → getId()

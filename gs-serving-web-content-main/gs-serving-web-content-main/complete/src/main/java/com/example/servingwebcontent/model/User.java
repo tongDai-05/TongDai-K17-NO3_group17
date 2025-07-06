@@ -5,7 +5,7 @@ public class User {
     private String userName;
     private String address;
 
-    public User() {} // constructor mặc định
+    public User() {} 
 
     public String getUserID() { return userID; }
     public void setUserID(String userID) { this.userID = userID; }

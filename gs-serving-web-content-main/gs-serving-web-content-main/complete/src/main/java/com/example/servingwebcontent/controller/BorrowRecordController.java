@@ -23,7 +23,6 @@ public class BorrowRecordController {
         this.borrowRecordAiven = borrowRecordAiven;
     }
 
-    // ✅ Danh sách phiếu mượn
     @GetMapping
     public String listRecords(Model model) {
         List<BorrowRecord> records = borrowRecordAiven.getAllRecords();
@@ -31,7 +30,6 @@ public class BorrowRecordController {
         return "borrowrecords/list"; // templates/borrowrecords/list.html
     }
 
-    // ✅ Hiển thị form thêm mới
     @GetMapping("/add")
     public String showAddForm(Model model) {
         BorrowRecord record = new BorrowRecord();
@@ -41,7 +39,6 @@ public class BorrowRecordController {
         return "borrowrecords/add"; // templates/borrowrecords/add.html
     }
 
-    // ✅ Xử lý thêm phiếu mượn
     @PostMapping("/add")
     public String addRecord(@ModelAttribute("borrowrecord") BorrowRecord record) {
         record.setRecordId(UUID.randomUUID().toString());
@@ -49,7 +46,6 @@ public class BorrowRecordController {
         return "redirect:/borrowrecords";
     }
 
-    // ✅ Hiển thị form chỉnh sửa
     @GetMapping("/edit/{id}")
     public String showEditForm(@PathVariable("id") String id, Model model) {
         BorrowRecord record = borrowRecordAiven.findById(id);
@@ -60,7 +56,6 @@ public class BorrowRecordController {
         return "borrowrecords/edit"; // templates/borrowrecords/edit.html
     }
 
-    // ✅ Xử lý cập nhật phiếu mượn
     @PostMapping("/edit/{id}")
     public String updateRecord(@PathVariable("id") String id,
                                @ModelAttribute("borrowrecord") BorrowRecord record) {
@@ -69,7 +64,6 @@ public class BorrowRecordController {
         return "redirect:/borrowrecords";
     }
 
-    // ✅ Xoá phiếu mượn
     @GetMapping("/delete/{id}")
     public String deleteRecord(@PathVariable("id") String id) {
         borrowRecordAiven.delete(id);

@@ -40,8 +40,7 @@ public class BookController {
 
     @PostMapping("/add")
     public String addBook(@ModelAttribute Book book) {
-        // Không tự sinh UUID nữa, ID do người dùng nhập từ form
-        book.setBorrowed(false);  // Khi thêm mới mặc định chưa mượn
+        book.setBorrowed(false);
         bookAiven.insertBook(book);
         return "redirect:/book";
     }

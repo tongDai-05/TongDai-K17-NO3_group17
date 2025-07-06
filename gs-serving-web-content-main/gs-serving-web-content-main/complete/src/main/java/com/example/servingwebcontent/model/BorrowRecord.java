@@ -11,10 +11,8 @@ public class BorrowRecord {
     private LocalDate dueDate;
     private LocalDate returnDate;
 
-    // Constructor mặc định
     public BorrowRecord() {}
 
-    // Constructor đầy đủ
     public BorrowRecord(String recordId, String bookId, String borrowerId, String borrowerName,
                         LocalDate borrowDate, LocalDate dueDate) {
         this.recordId = recordId;
@@ -26,7 +24,6 @@ public class BorrowRecord {
         this.returnDate = null;
     }
 
-    // Getter - Setter
 
     public String getRecordId() {
         return recordId;
@@ -84,7 +81,6 @@ public class BorrowRecord {
         this.returnDate = returnDate;
     }
 
-    // Kiểm tra quá hạn
     public boolean isOverdue() {
         return returnDate == null && LocalDate.now().isAfter(dueDate);
     }

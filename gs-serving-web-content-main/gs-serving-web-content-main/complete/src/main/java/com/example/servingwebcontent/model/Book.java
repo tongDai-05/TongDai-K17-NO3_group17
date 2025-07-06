@@ -7,20 +7,17 @@ public class Book {
     private String viTri;
     private boolean borrowed;
 
-    // ✅ Constructor mặc định
     public Book() {
     }
 
-    // ✅ Constructor có tham số
     public Book(String id, String title, String author, String viTri) {
         this.id = id;
         this.title = title;
         this.author = author;
         this.viTri = viTri;
-        this.borrowed = false; // mặc định chưa mượn
+        this.borrowed = false; 
     }
 
-    // ✅ Getter và Setter
     public String getId() {
         return id;
     }
@@ -61,12 +58,10 @@ public class Book {
         this.borrowed = borrowed;
     }
 
-    // ✅ Gọi khi mượn sách
     public void muonSach() {
         this.borrowed = true;
     }
 
-    // ✅ Gọi khi trả sách
     public void traSach() {
         this.borrowed = false;
     }

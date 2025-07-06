@@ -18,7 +18,6 @@ public class BorrowRecordAiven {
         return DriverManager.getConnection(URL, USER, PASS);
     }
 
-    // ✅ Lấy toàn bộ phiếu mượn
     public List<BorrowRecord> getAllRecords() {
         List<BorrowRecord> list = new ArrayList<>();
         String sql = "SELECT * FROM borrow_records";
@@ -36,7 +35,6 @@ public class BorrowRecordAiven {
         return list;
     }
 
-    // ✅ Tìm 1 phiếu mượn theo ID
     public BorrowRecord findById(String recordId) {
         String sql = "SELECT * FROM borrow_records WHERE recordId = ?";
         try (Connection conn = getConnection();
@@ -53,7 +51,6 @@ public class BorrowRecordAiven {
         return null;
     }
 
-    // ✅ Thêm mới phiếu mượn
     public void insert(BorrowRecord br) {
         String sql = "INSERT INTO borrow_records (recordId, bookId, borrowerId, borrowerName, borrowDate, dueDate, returnDate) VALUES (?, ?, ?, ?, ?, ?, ?)";
         try (Connection conn = getConnection();
@@ -74,7 +71,6 @@ public class BorrowRecordAiven {
         }
     }
 
-    // ✅ Cập nhật phiếu mượn
     public void update(BorrowRecord br) {
         String sql = "UPDATE borrow_records SET bookId=?, borrowerId=?, borrowerName=?, borrowDate=?, dueDate=?, returnDate=? WHERE recordId=?";
         try (Connection conn = getConnection();
@@ -95,7 +91,6 @@ public class BorrowRecordAiven {
         }
     }
 
-    // ✅ Xoá phiếu mượn
     public void delete(String recordId) {
         String sql = "DELETE FROM borrow_records WHERE recordId=?";
         try (Connection conn = getConnection();
@@ -109,7 +104,6 @@ public class BorrowRecordAiven {
         }
     }
 
-    // ✅ Chuyển ResultSet → BorrowRecord
     private BorrowRecord map(ResultSet rs) throws SQLException {
         BorrowRecord br = new BorrowRecord();
         br.setRecordId(rs.getString("recordId"));
@@ -124,7 +118,6 @@ public class BorrowRecordAiven {
         }
         return br;
     }
-    // Thêm vào BorrowRecordAiven.java
     public void deleteByBookId(String bookId) {
         String sql = "DELETE FROM borrow_records WHERE bookId=?";
         try (Connection conn = getConnection();

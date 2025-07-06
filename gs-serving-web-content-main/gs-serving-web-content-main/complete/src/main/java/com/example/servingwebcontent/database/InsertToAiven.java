@@ -19,7 +19,6 @@ public class InsertToAiven {
                 "jdbc:mysql://mysql-cd52b85-raznopro2k5-c07e.c.aivencloud.com:22996/defaultdb?ssl-mode=REQUIRED",
                 "avnadmin", "AVNS_4nU1y6avZRmSrZ0OhWl");
 
-            // Random userId
             Random rand = new Random();
             String userIdVal = "u" + rand.nextInt(1000);
 

@@ -18,7 +18,6 @@ public class UserAiven {
         return DriverManager.getConnection(URL, USER, PASS);
     }
 
-    // ✅ Lấy danh sách tất cả người dùng
     public List<User> getAllUsers() {
         List<User> users = new ArrayList<>();
         String sql = "SELECT * FROM user";
@@ -37,7 +36,6 @@ public class UserAiven {
         return users;
     }
 
-    // ✅ Tìm người dùng theo ID
     public User findUserById(String id) {
         String sql = "SELECT * FROM user WHERE id = ?";
         try (Connection conn = getConnection();
@@ -56,7 +54,6 @@ public class UserAiven {
         return null;
     }
 
-    // ✅ Thêm người dùng mới
     public void insertUser(User user) {
         String sql = "INSERT INTO user (id, name, address) VALUES (?, ?, ?)";
         try (Connection conn = getConnection();
@@ -73,7 +70,6 @@ public class UserAiven {
         }
     }
 
-    // ✅ Cập nhật người dùng
     public void updateUser(User user) {
         String sql = "UPDATE user SET name = ?, address = ? WHERE id = ?";
         try (Connection conn = getConnection();
@@ -90,7 +86,6 @@ public class UserAiven {
         }
     }
 
-    // ✅ Xóa người dùng
     public void deleteUser(String userID) {
         String sql = "DELETE FROM user WHERE id = ?";
         try (Connection conn = getConnection();
@@ -104,7 +99,6 @@ public class UserAiven {
         }
     }
 
-    // ✅ Ánh xạ từ ResultSet sang User
     private User mapResultSetToUser(ResultSet rs) throws SQLException {
         User user = new User();
         user.setUserID(rs.getString("id"));
